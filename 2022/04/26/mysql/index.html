@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>基础知识 | Hexo</title>
+  <title>mysql整理 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&#x3D;&#x3D; 和equals &#x3D;&#x3D;对比栈中的值基本类型 是变量值的比较          引用类型是内存对象的地址的比较1$ equals是object默认是用&#x3D;&#x3D;比较，所以经常重写equals来比较对象  1$ string的已经重写equals，所以可以用equals来比较相同      1$ new String(&quot;abc&quot;)    创建了2个对象 常量池和堆内存      fi">
+  <meta name="description" content="什么是 面向对象 mysql数据库框架123$ Mybatis对比 hibernate  简单的单表查询 hibernate对比mybatisplus     替换符12345$ #&amp;#123;&amp;#125; $&amp;#123;&amp;#125;#&amp;#123;&amp;#125; prepareStatment 预编译$&amp;#123;&amp;#125;  statment 替换#&amp;#123;&amp;#125;  变量替换后加上‘’">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基础知识">
-<meta property="og:url" content="http://example.com/2022/04/18/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:title" content="mysql整理">
+<meta property="og:url" content="http://example.com/2022/04/26/mysql/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="&#x3D;&#x3D; 和equals &#x3D;&#x3D;对比栈中的值基本类型 是变量值的比较          引用类型是内存对象的地址的比较1$ equals是object默认是用&#x3D;&#x3D;比较，所以经常重写equals来比较对象  1$ string的已经重写equals，所以可以用equals来比较相同      1$ new String(&quot;abc&quot;)    创建了2个对象 常量池和堆内存      fi">
+<meta property="og:description" content="什么是 面向对象 mysql数据库框架123$ Mybatis对比 hibernate  简单的单表查询 hibernate对比mybatisplus     替换符12345$ #&amp;#123;&amp;#125; $&amp;#123;&amp;#125;#&amp;#123;&amp;#125; prepareStatment 预编译$&amp;#123;&amp;#125;  statment 替换#&amp;#123;&amp;#125;  变量替换后加上‘’">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-18T13:39:28.021Z">
-<meta property="article:modified_time" content="2022-04-18T14:17:58.155Z">
+<meta property="article:published_time" content="2022-04-26T13:11:20.835Z">
+<meta property="article:modified_time" content="2022-04-27T12:28:30.929Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,53 +154,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java基础知识" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      基础知识
+      mysql整理
     </h1>
   
 
         
-        <a href="/2022/04/18/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2022-04-18T13:39:28.021Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-18</time>
+        <a href="/2022/04/26/mysql/" class="archive-article-date">
+  	<time datetime="2022-04-26T13:11:20.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>== 和equals</p>
-<h2 id="对比栈中的值"><a href="#对比栈中的值" class="headerlink" title="==对比栈中的值"></a>==对比栈中的值</h2><h3 id="基本类型-是变量值的比较-引用类型是内存对象的地址的比较"><a href="#基本类型-是变量值的比较-引用类型是内存对象的地址的比较" class="headerlink" title="基本类型 是变量值的比较          引用类型是内存对象的地址的比较"></a>基本类型 是变量值的比较          引用类型是内存对象的地址的比较</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ equals是object默认是用==比较，所以经常重写equals来比较对象</span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ string的已经重写equals，所以可以用equals来比较相同</span><br></pre></td></tr></table></figure>
+        <p>什么是 面向对象</p>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><h3 id="数据库框架"><a href="#数据库框架" class="headerlink" title="数据库框架"></a>数据库框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ Mybatis对比 hibernate</span><br><span class="line"></span><br><span class="line">  简单的单表查询 hibernate对比mybatisplus </span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="替换符"><a href="#替换符" class="headerlink" title="替换符"></a>替换符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="comment">#&#123;&#125; $&#123;&#125;</span></span><br><span class="line"><span class="comment">#&#123;&#125; prepareStatment 预编译</span></span><br><span class="line"><span class="variable">$&#123;&#125;</span>  statment 替换</span><br><span class="line"><span class="comment">#&#123;&#125;  变量替换后加上‘’</span></span><br><span class="line"><span class="variable">$&#123;&#125;</span>  变量替换后 不会加上单引号</span><br></pre></td></tr></table></figure>
 
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ new String(<span class="string">&quot;abc&quot;</span>)    创建了2个对象 常量池和堆内存</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="索引的基本原理"><a href="#索引的基本原理" class="headerlink" title="索引的基本原理"></a>索引的基本原理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ 索引的基本原理</span><br><span class="line"> 快速寻找特定值得记录</span><br><span class="line"> 1.把创建了索引的列的内容进行排序，修改时间</span><br><span class="line"> 2.对排序结果生成倒排表</span><br><span class="line"> 3.在倒排表内容上拼上数据地址链</span><br><span class="line"> 4.在查询的时候，先拿到倒排表内容，再取出数据地址链，从而拿到具体数据</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 
 
 
-<p>final</p>
-<h2 id="final定义"><a href="#final定义" class="headerlink" title="final定义"></a>final定义</h2><h3 id="最终的"><a href="#最终的" class="headerlink" title="最终的"></a>最终的</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ final类 不可以被继承  </span><br><span class="line">  final方法   不可以重写</span><br><span class="line">  final变量 不可以再次更改（赋值后）</span><br><span class="line">       成员变量      申明，构造器，普通代码块 赋值</span><br><span class="line">       局部变量    使用前 有赋值</span><br><span class="line">       基本数据类型      只能一次赋值，不能更改</span><br><span class="line">       引用数据类型  可以修改值 ，不能指向另一个对象(null)</span><br><span class="line">       </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ mysql聚簇索引和非聚簇索引</span><br><span class="line">1聚簇索引 索引和数据放到一起，按照一定的顺序组织。</span><br><span class="line"> 一次直接获取数据快。范围查询的效率高，适合排序</span><br><span class="line">  UUID作为主键，导致聚簇索引比全表扫描更慢。主键比较大，辅助索引也会变得比较大。非叶子节点占用更多的物理空  间</span><br><span class="line"></span><br><span class="line">2非聚簇索引  叶子点不存放数据，存放数据行地址</span><br><span class="line">  2次查询 的速度会比较慢（只查返回id是比较快），二次查询就是回表查询，用id再查</span><br><span class="line">  维护索引的代价低   </span><br><span class="line">  </span><br><span class="line"> innodb 主键id 为聚簇索引     其他列创建的索引为辅助索引。非聚簇索引 都是辅助索引。</span><br><span class="line"> </span><br><span class="line"> myIsm 使用非聚簇索引</span><br></pre></td></tr></table></figure>
 
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ string, final修饰，不可变，每次操作都是新的对象</span><br><span class="line">  StringBuffer,原对象上操作 线程安全  synchronized 修饰</span><br><span class="line">  Stringbuilder 原对象操作 线程不安全</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ myISAM : 支持表级锁 ,非聚簇索引。每次查询都是原子。存储总行数  </span><br><span class="line">  索引文件，结构文件，数据文件。        非聚簇索引分开存储。2次查询，回表查询。辅助索引不用保持唯一性</span><br><span class="line"></span><br><span class="line">   INnodb : 支持事务 ，行级锁及外键约束 支持写并发。不存储总行数  </span><br><span class="line">   主键聚簇索引  存储引擎在文件空间，分布在多个文件。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ 重载 方法名相同， 同一个类中，入参不同</span><br><span class="line">  重写      子类重写父类方法   返回值范围小于等于父类 ，异常范围要小于父类，修饰符大于父类 private不可以重写</span><br></pre></td></tr></table></figure>
 
-<h3 id="-3"><a href="#-3" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ 接口    都是抽象方法       成员变量是 public static final  多实现 </span><br><span class="line">   约束类的行为的有无</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  抽象类   有普通成员方法或抽象方法  成员变量   单继承  </span><br><span class="line">  代码复用    抽象类不能实例化</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ mysql的索引的数据结构</span><br><span class="line"> B+树：</span><br><span class="line"> 1.拥有B树的特点</span><br><span class="line"> 2.叶子节点之间有指针，支持全表扫描和范围查询</span><br><span class="line"> 3.非叶子节点的元素在叶子节点上都冗余，也就是叶子节点存储了所有的元素，并且排好了顺序</span><br><span class="line"> 4.叶子节点存储多个元素，树的高度不会太高</span><br><span class="line"> </span><br><span class="line"> B树 ：1.节点排序</span><br><span class="line"> 2.一个节点可以存储多个元素，多个元素也排序</span><br></pre></td></tr></table></figure>
 
 
 
 
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ 索引原则</span><br><span class="line"> 1.where 后面的条件  2表链接的关键词</span><br><span class="line"> 2.基数较小的表。全表比走索引快</span><br><span class="line"> 3.短索引，索引字段比较少。前缀索引</span><br><span class="line"> 4.不要过度索引，创建数据会增加保存索引的空间</span><br><span class="line"> 5.外键，关联其他表可以加索引</span><br><span class="line"> 6.更新频繁的字段，不建索引</span><br><span class="line"> 7.区分度很低的字段。性别男或女</span><br><span class="line"> 8.联合索引 代替2个单独索引</span><br><span class="line"> 9.查询小的字段，不建索引</span><br><span class="line"> 10。text。image字段不建立索引</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ mysql的锁</span><br><span class="line"></span><br><span class="line">锁的属性分类： 共享锁，排他锁</span><br><span class="line">力度： 行级锁。表级锁。页级锁，记录锁，间隙锁，临键锁</span><br><span class="line">状态 意向共享锁 ，意向排他锁</span><br><span class="line"></span><br><span class="line">共享锁： 读锁，不能加写锁，可以并发读取</span><br><span class="line">排他锁：  写锁 ,不能接受其他锁。排除其他所有</span><br><span class="line"></span><br><span class="line">表锁：  锁住整个锁， 粒度大，冲突大</span><br><span class="line">行锁：  锁住1行或多行。其他没被锁住的可以正常访问，被锁住的只能自己访问。</span><br><span class="line">        力度小，麻烦，冲突小，并发度高</span><br><span class="line">记录锁：  1行记录 （用主键触发）避免数据查询的时候被修改的重复读问题</span><br><span class="line">页锁： 锁1页数据。会出现死锁</span><br><span class="line">间隙锁：    行锁一种，某个区间的 左开右闭</span><br><span class="line">临键锁： 行锁，把查询的记录都锁住</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ mysql的explain 解析  执行计划查询分析</span><br><span class="line">id 值越大，执行优先级越先执行</span><br><span class="line">select_type 查询类型 simple ,primary subouery union  derived</span><br><span class="line">table 表名</span><br><span class="line">partitions 分区</span><br><span class="line">type 索引类型 </span><br><span class="line">possible_keys 可能会走的索引</span><br><span class="line">key 现在走了的索引名字</span><br><span class="line">key_len  联合索引命中的长度</span><br><span class="line">ref 命中的索引字段名</span><br><span class="line">rows 读取都是数据行  数字越小越好</span><br><span class="line">filtered 过滤百分比 越高越好</span><br><span class="line">extra    using filesort 时间多  index 走索引快 temporary 实验临时表，建议优化   where 效率高</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ 事务的基本特性 ACID  原子性 一致性 隔离性 持久性</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  4个隔离级别</span><br><span class="line">  读未提交</span><br><span class="line">  读已提交 不可重复读  2次读取结果不一致 同一个事务，结果在变化</span><br><span class="line">  可重复读 每次读取结果都一样，有可能会幻读，数据变化了，但显示不一致</span><br><span class="line">  串行化</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
 
 
       
@@ -281,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/18/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/26/mysql/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +310,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/04/18/%E9%9B%86%E5%90%88/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/04/26/redis/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          集合
+          redis
         
       </div>
     </a>
   
   
-    <a href="/2022/04/17/javaBean/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java bean</div>
+    <a href="/2022/04/26/springMvc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springMvc</div>
       <i class="icon-circle-right"></i>
     </a>
   

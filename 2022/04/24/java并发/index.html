@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>并发包 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="java并发串行，并发，并行123$ 串行： 时间上不可能发生重叠  并行：     2个任务同时运行 。我边听歌边吃饭  并发：   多线程并发，cpu切换进行运算。  并发3大特性123$ 原子性      都执行或者都不执行    CAS 乐观锁的 AutoInteger 例子  有序性      指令重排引发的  可见性      volatitle  创建线程有哪几种方式？1234$继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并发包">
+<meta property="og:url" content="http://example.com/2022/04/24/java%E5%B9%B6%E5%8F%91/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="java并发串行，并发，并行123$ 串行： 时间上不可能发生重叠  并行：     2个任务同时运行 。我边听歌边吃饭  并发：   多线程并发，cpu切换进行运算。  并发3大特性123$ 原子性      都执行或者都不执行    CAS 乐观锁的 AutoInteger 例子  有序性      指令重排引发的  可见性      volatitle  创建线程有哪几种方式？1234$继承">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-24T14:47:57.648Z">
+<meta property="article:modified_time" content="2022-04-28T05:01:33.926Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,601 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-jvm面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="title-jvm"><a href="#title-jvm" class="headerlink" title="title:jvm"></a>title:jvm</h2><h2 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h2><h3 id="说一下-JVM-的主要组成部分及其作用？"><a href="#说一下-JVM-的主要组成部分及其作用？" class="headerlink" title="说一下 JVM 的主要组成部分及其作用？"></a>说一下 JVM 的主要组成部分及其作用？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ JVM包含两个子系统和两个组件，两个子系统为Class loader(类装载)、Execution engine(执行引擎)；两个组件为Runtime data area(运行时数据区)、Native Interface(本地接口)。</span><br><span class="line"></span><br><span class="line">Class loader(类装载)：根据给定的全限定名类名(如：java.lang.Object)来装载class文件到Runtime data area中的method area。</span><br><span class="line"></span><br><span class="line">Execution engine（执行引擎）：执行classes中的指令。</span><br><span class="line"></span><br><span class="line">Native Interface(本地接口)：与native libraries交互，是其它编程语言交互的接口。</span><br><span class="line"></span><br><span class="line">Runtime data area(运行时数据区域)：这就是我们常说的JVM的内存。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="E:\blog\source\pic\20200103213149526.png"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/28/jvm%E9%9D%A2%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="title-算法"><a href="#title-算法" class="headerlink" title="title:算法"></a>title:算法</h2><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         <span class="comment">//定义一个数组</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">&quot;排序前：&quot;</span> + Arrays.toString(arr));</span><br><span class="line">        <span class="comment">// 这里减1，是控制每轮比较的次数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; arr.length - <span class="number">1</span>; x++) &#123;</span><br><span class="line">          <span class="comment">// -1是为了避免索引越界，-x是为了调高比较效率</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span> - x; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">                    arr[i] = arr[i + <span class="number">1</span>];</span><br><span class="line">                    arr[i + <span class="number">1</span>] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;排序后：&quot;</span> + Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义一个数组</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">        System.out.println(<span class="string">&quot;排序前：&quot;</span> + Arrays.toString(arr));</span><br><span class="line">        <span class="comment">// 这里减1，是控制每轮比较的次数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; arr.length; x++) &#123;</span><br><span class="line">           <span class="comment">// 从x+1开始,直到最后一个元素</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = x + <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[x] &gt; arr[i]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> temp = arr[x];</span><br><span class="line">                    arr[x] = arr[i];</span><br><span class="line">                    arr[i] = temp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;排序后：&quot;</span> + Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">9</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">10</span>,<span class="number">4</span>,<span class="number">6</span>&#125;;</span><br><span class="line">        quickSort(arr,<span class="number">0</span>,arr.length - <span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> low,<span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> p,i,j,temp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(low &gt;= high) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//p就是基准数,这里就是每个数组的第一个</span></span><br><span class="line">        p = arr[low];</span><br><span class="line">        i = low;</span><br><span class="line">        j = high;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j) &#123;</span><br><span class="line">            <span class="comment">//右边当发现小于p的值时停止循环</span></span><br><span class="line">            <span class="keyword">while</span>(arr[j] &gt;= p &amp;&amp; i &lt; j) &#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//这里一定是右边开始，上下这两个循环不能调换（下面有解析，可以先想想）    </span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//左边当发现大于p的值时停止循环</span></span><br><span class="line">            <span class="keyword">while</span>(arr[i] &lt;= p &amp;&amp; i &lt; j) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            temp = arr[j];</span><br><span class="line">            arr[j] = arr[i];</span><br><span class="line">            arr[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[low] = arr[i];<span class="comment">//这里的arr[i]一定是停小于p的，经过i、j交换后i处的值一定是小于p的(j先走)</span></span><br><span class="line">        arr[i] = p;</span><br><span class="line">        quickSort(arr,low,j-<span class="number">1</span>);  <span class="comment">//对左边快排</span></span><br><span class="line">        quickSort(arr,j+<span class="number">1</span>,high); <span class="comment">//对右边快排</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/27/%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-分布式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-java并发" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-04-27T05:32:35.564Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>分布式</p>
-<h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><h3 id="分布式-1"><a href="#分布式-1" class="headerlink" title="分布式"></a>分布式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$  CAP      一致性，可用性 ，容错性</span><br><span class="line">   base  基本可用 软状态 ，最终一致性</span><br><span class="line"></span><br><span class="line">   Cp  强一致性           Ap  强可用</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ 分布式锁    setnx或者redisson可以实现</span><br><span class="line">  分布式事务      seata，或者异常补偿机制，进行回退</span><br><span class="line">  接口的幂等性    例子 先设计唯一id到验证码      数据库去重    redis setnx去重</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ZAB协议     zookeeper 的协议</span><br><span class="line">  数据一致性          2种基本的模式： 奔溃恢复 和消息广播</span><br><span class="line">  奔溃期间不可以用         消息广播是集群中传递信息</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ spring cloud               dubbo</span><br><span class="line">  http请求        应用层        tcp请求       性能tcp会比较好      传输层</span><br><span class="line">  注册中心不同</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/26/redis/">redis</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/26/redis/" class="archive-article-date">
-  	<time datetime="2022-04-26T15:31:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>什么是 面向对象</p>
-<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="Redis-1"><a href="#Redis-1" class="headerlink" title="Redis"></a>Redis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ RDB 和AOF持久化机制</span><br><span class="line"></span><br><span class="line">  RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。</span><br><span class="line">  </span><br><span class="line">  AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作</span><br><span class="line">      频率高，备份数据多，安全多 但是恢复速度慢</span><br><span class="line">      </span><br><span class="line">  redis过期键的删除策略</span><br><span class="line">  </span><br><span class="line">  惰性过期  节省cpu资源，浪费更多内存</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  定期过期  每隔一定时间，扫描一定数量的，清除已过期key。节省内存</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ 单线程快的原因</span><br><span class="line">1.纯内存操作</span><br><span class="line">2.核心是基于非阻塞的IO多路复用机制</span><br><span class="line">3.单线程反而避免多线程的频繁上下文切换带来的性能问题</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ 缓存雪崩 缓存在一定时间大面积的失效， 过期时间随机，缓存预热（微服务启动的时候配置缓存）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  缓存穿透   数据库和缓存都没有。设置到缓存key -null。做之后返回</span><br><span class="line">      布隆过滤器，存放所有的数据，过滤非法请求</span><br><span class="line">      </span><br><span class="line">   缓存击穿     缓存没有，数据库有  热点数据永不过期，及时配置缓存数据   </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ redis 事务 </span><br><span class="line">  事务开始  </span><br><span class="line">  </span><br><span class="line">  命令入队</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  事务执行</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ redis 集群方案</span><br><span class="line"></span><br><span class="line"> 哨兵模式：  3个以上做成集群   主从切换 不能保证数据缺失，但是高可用</span><br><span class="line"> </span><br><span class="line"> redis Cluster   哈希槽。多个节点互为主从，互相备份数据。（默认是异步同步）支持配置阻塞同步，不保持强一致性</span><br><span class="line"> </span><br><span class="line"> redis  sharding </span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/26/redis/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/26/mysql/">mysql整理</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/26/mysql/" class="archive-article-date">
-  	<time datetime="2022-04-26T13:11:20.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>什么是 面向对象</p>
-<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><h3 id="数据库框架"><a href="#数据库框架" class="headerlink" title="数据库框架"></a>数据库框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ Mybatis对比 hibernate</span><br><span class="line"></span><br><span class="line">  简单的单表查询 hibernate对比mybatisplus </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="替换符"><a href="#替换符" class="headerlink" title="替换符"></a>替换符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="comment">#&#123;&#125; $&#123;&#125;</span></span><br><span class="line"><span class="comment">#&#123;&#125; prepareStatment 预编译</span></span><br><span class="line"><span class="variable">$&#123;&#125;</span>  statment 替换</span><br><span class="line"><span class="comment">#&#123;&#125;  变量替换后加上‘’</span></span><br><span class="line"><span class="variable">$&#123;&#125;</span>  变量替换后 不会加上单引号</span><br></pre></td></tr></table></figure>
-
-<h3 id="索引的基本原理"><a href="#索引的基本原理" class="headerlink" title="索引的基本原理"></a>索引的基本原理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ 索引的基本原理</span><br><span class="line"> 快速寻找特定值得记录</span><br><span class="line"> 1.把创建了索引的列的内容进行排序，修改时间</span><br><span class="line"> 2.对排序结果生成倒排表</span><br><span class="line"> 3.在倒排表内容上拼上数据地址链</span><br><span class="line"> 4.在查询的时候，先拿到倒排表内容，再取出数据地址链，从而拿到具体数据</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ mysql聚簇索引和非聚簇索引</span><br><span class="line">1聚簇索引 索引和数据放到一起，按照一定的顺序组织。</span><br><span class="line"> 一次直接获取数据快。范围查询的效率高，适合排序</span><br><span class="line">  UUID作为主键，导致聚簇索引比全表扫描更慢。主键比较大，辅助索引也会变得比较大。非叶子节点占用更多的物理空  间</span><br><span class="line"></span><br><span class="line">2非聚簇索引  叶子点不存放数据，存放数据行地址</span><br><span class="line">  2次查询 的速度会比较慢（只查返回id是比较快），二次查询就是回表查询，用id再查</span><br><span class="line">  维护索引的代价低   </span><br><span class="line">  </span><br><span class="line"> innodb 主键id 为聚簇索引     其他列创建的索引为辅助索引。非聚簇索引 都是辅助索引。</span><br><span class="line"> </span><br><span class="line"> myIsm 使用非聚簇索引</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ myISAM : 支持表级锁 ,非聚簇索引。每次查询都是原子。存储总行数  </span><br><span class="line">  索引文件，结构文件，数据文件。        非聚簇索引分开存储。2次查询，回表查询。辅助索引不用保持唯一性</span><br><span class="line"></span><br><span class="line">   INnodb : 支持事务 ，行级锁及外键约束 支持写并发。不存储总行数  </span><br><span class="line">   主键聚簇索引  存储引擎在文件空间，分布在多个文件。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ mysql的索引的数据结构</span><br><span class="line"> B+树：</span><br><span class="line"> 1.拥有B树的特点</span><br><span class="line"> 2.叶子节点之间有指针，支持全表扫描和范围查询</span><br><span class="line"> 3.非叶子节点的元素在叶子节点上都冗余，也就是叶子节点存储了所有的元素，并且排好了顺序</span><br><span class="line"> 4.叶子节点存储多个元素，树的高度不会太高</span><br><span class="line"> </span><br><span class="line"> B树 ：1.节点排序</span><br><span class="line"> 2.一个节点可以存储多个元素，多个元素也排序</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ 索引原则</span><br><span class="line"> 1.where 后面的条件  2表链接的关键词</span><br><span class="line"> 2.基数较小的表。全表比走索引快</span><br><span class="line"> 3.短索引，索引字段比较少。前缀索引</span><br><span class="line"> 4.不要过度索引，创建数据会增加保存索引的空间</span><br><span class="line"> 5.外键，关联其他表可以加索引</span><br><span class="line"> 6.更新频繁的字段，不建索引</span><br><span class="line"> 7.区分度很低的字段。性别男或女</span><br><span class="line"> 8.联合索引 代替2个单独索引</span><br><span class="line"> 9.查询小的字段，不建索引</span><br><span class="line"> 10。text。image字段不建立索引</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ mysql的锁</span><br><span class="line"></span><br><span class="line">锁的属性分类： 共享锁，排他锁</span><br><span class="line">力度： 行级锁。表级锁。页级锁，记录锁，间隙锁，临键锁</span><br><span class="line">状态 意向共享锁 ，意向排他锁</span><br><span class="line"></span><br><span class="line">共享锁： 读锁，不能加写锁，可以并发读取</span><br><span class="line">排他锁：  写锁 ,不能接受其他锁。排除其他所有</span><br><span class="line"></span><br><span class="line">表锁：  锁住整个锁， 粒度大，冲突大</span><br><span class="line">行锁：  锁住1行或多行。其他没被锁住的可以正常访问，被锁住的只能自己访问。</span><br><span class="line">        力度小，麻烦，冲突小，并发度高</span><br><span class="line">记录锁：  1行记录 （用主键触发）避免数据查询的时候被修改的重复读问题</span><br><span class="line">页锁： 锁1页数据。会出现死锁</span><br><span class="line">间隙锁：    行锁一种，某个区间的 左开右闭</span><br><span class="line">临键锁： 行锁，把查询的记录都锁住</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ mysql的explain 解析  执行计划查询分析</span><br><span class="line">id 值越大，执行优先级越先执行</span><br><span class="line">select_type 查询类型 simple ,primary subouery union  derived</span><br><span class="line">table 表名</span><br><span class="line">partitions 分区</span><br><span class="line">type 索引类型 </span><br><span class="line">possible_keys 可能会走的索引</span><br><span class="line">key 现在走了的索引名字</span><br><span class="line">key_len  联合索引命中的长度</span><br><span class="line">ref 命中的索引字段名</span><br><span class="line">rows 读取都是数据行  数字越小越好</span><br><span class="line">filtered 过滤百分比 越高越好</span><br><span class="line">extra    using filesort 时间多  index 走索引快 temporary 实验临时表，建议优化   where 效率高</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ 事务的基本特性 ACID  原子性 一致性 隔离性 持久性</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  4个隔离级别</span><br><span class="line">  读未提交</span><br><span class="line">  读已提交 不可重复读  2次读取结果不一致 同一个事务，结果在变化</span><br><span class="line">  可重复读 每次读取结果都一样，有可能会幻读，数据变化了，但显示不一致</span><br><span class="line">  串行化</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/26/mysql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-springMvc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/26/springMvc/">springMvc</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/26/springMvc/" class="archive-article-date">
-  	<time datetime="2022-04-26T06:34:44.419Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><h3 id="SpringMVC-1"><a href="#SpringMVC-1" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ springMVC 工作流程</span><br><span class="line"></span><br><span class="line"> 前端控制器DispatcherServlet--&gt;HandlerMapper处理器映射器---&gt;handlerAdapter处理器适配器---&gt;</span><br><span class="line">controller，也叫后端控制器---&gt;将modelandView 传给ViewReslover视图解析器---&gt;DispatcherServlet根据view 进行渲染视图----&gt;响应用户</span><br><span class="line"></span><br><span class="line">  1.用户请求发送到前端控制器DispatcherServlet</span><br><span class="line">  2.DispatcherServlet收到请求后调用HandlerMapper处理器映射器 维护url和映射器关系</span><br><span class="line">  3.处理器映射器找到具体的处理器，生成处理器及处理器拦截器（如果有则生成）一并返回到DispatcherServlet</span><br><span class="line">  4.DispatServlet调用handlerAdapter处理器适配器</span><br><span class="line">  5.HandlerAdapter经过适配器调用具体的处理器（controller，也叫后端控制器）</span><br><span class="line">  6.controller执行完成返回modelandView</span><br><span class="line">  7.HandlerAdapter 将执行结果 modelandView 返回到DispatServlet</span><br><span class="line">  8.DispatcherServlet 将modelandView 传给ViewReslover视图解析器</span><br><span class="line">  9.ViewReslover视图解析器解析后返回具体的view</span><br><span class="line">  10.DispatcherServlet根据view 进行渲染视图</span><br><span class="line">  11.DispatcherServlet响应用户</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ springMVC 9大组件    前端控制器DispatcherServlet 核心</span><br><span class="line"></span><br><span class="line">  handler是用来干活的工具 handlerMapper是用于根据需要干的活找对对应的工具</span><br><span class="line">  handlerAdaptor 是使用工具干活的人</span><br><span class="line"> </span><br><span class="line"> 1.HandlerMapper 处理器映射器  根据url查找handler的关系，便利出对应的handler处理</span><br><span class="line"> 2.HandlerAdapter 处理器适配器  任意形式的Handler通过使用适配器，可以“转换”成固定形式，然后交给                Servlet来处理。每种Handler都要有对应的HandlerAdapter才能处理请求</span><br><span class="line"> 3.HandlerExceptionResolver  处理页面渲染之前的异常</span><br><span class="line"> 4.ViewResolver 视图解析器 将String类型的视图名(viewName)和Locale解析为View类型的视图</span><br><span class="line"> 5.RequestToViewNameTranslator  从request中获取ViewName，返回void的情景</span><br><span class="line"> 6.LocaleResolver  有两个参数：一是视图名(viewName)，另一个是Locale。视图名是处理器返回的，</span><br><span class="line">但是Locale没有，而LocaleResolver就是用于从request解析出Locale。</span><br><span class="line">7.ThemeResolver  解析主题</span><br><span class="line">8.MultipartResolver 用于处理上传请求</span><br><span class="line">将普通的request包装成MultipartHttpServletRequest，就可以调用getFile方法获取File</span><br><span class="line">9.FlashMapManager  管理FlashMap的，FlashMap是用在redirect中传递参数。 就像我们写接口传递的参数，可以封装到Map中</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/26/springMvc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/25/spring%E9%9D%A2%E8%AF%95/">spring</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/25/spring%E9%9D%A2%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2022-04-25T09:55:08.458Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>并发</p>
-<h2 id="java并发"><a href="#java并发" class="headerlink" title="java并发"></a>java并发</h2><h3 id="spring框架"><a href="#spring框架" class="headerlink" title="spring框架"></a>spring框架</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ 轻量级J2EE容器框架，转JavaBean。</span><br><span class="line">  是控制反转 IOC和面向切面的 AOp 容器框架</span><br><span class="line">  控制反转 松耦合 对象依赖 </span><br><span class="line">  面向切面编程 分离应用的业务逻辑和系统服务进行内聚性的开发</span><br><span class="line">  管理应用对象的配置和生命周期</span><br><span class="line">  容易整合其他框架</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ AOP:  面向切面 ，避免大量的创建对象代码，把程序中的业务逻辑（比如安全，日志，事务），封装成切面，然后注入到目标对象。代理增强某个功能。可以在面向切面的4个方面做事情</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ IOC:  控制反转，本质是个map容器。存放各个bean对象。读取配置文件中的bean节点,或者扫描逐注解.放入到map中。 再通过DI（注解）注入属性。引入IOC容器后，容器会主动把对象创建并注入的。</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ BeanFactory:父类。延迟加载注入Bean。有可能会有异常。已编程方式创建.手动注册</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  ApplicationContext:子类接口。继承MessaageSource，统一的资源文件访问方式。</span><br><span class="line">  提供在监听器中注册Bean的事件    同时加载多个配置文件 载入多个上下文。</span><br><span class="line">  容器启动的时候创建所有的bean。占用内存大。编程方式和声明方式创建，contextLoader。自动注册</span><br><span class="line">  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ springBean的生命周期 ：</span><br><span class="line">   1.解析类得到BeanDefinition.  扫描路径 或者读取配置文件</span><br><span class="line">   2.如果有多个构造方法，进需要推断构造方法。</span><br><span class="line">   3.确定好构造方法后，进行实例化得到一个对象</span><br><span class="line">   4.对对象中的加了@Autowired注解的属性进行属性填充</span><br><span class="line">   5.回调Aware方法，比如BeanNameAware，BeanFactoryAware</span><br><span class="line">   6.调用BeanPostProcessor的初始化前的方法</span><br><span class="line">   7.调用初始化方法    @PostConstruct</span><br><span class="line">   8.调用BeanPostProcessor的初始化后的方法，可以Aop</span><br><span class="line">   9.bean是单例，放入单例池</span><br><span class="line">   10.使用bean</span><br><span class="line">   11.spring容器关闭时调用DisposableBean的destory（）方法</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanPostProcessor</span> <span class="keyword">implements</span> <span class="title">BeanPostProcessor</span>,<span class="title">Ordered</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 实例化、依赖注入完毕，在调用显示的初始化之前完成一些定制的初始化任务</span></span><br><span class="line"><span class="comment">	 * 注意：方法返回值不能为null</span></span><br><span class="line"><span class="comment">	 * 如果返回null那么在后续初始化方法将报空指针异常或者通过getBean()方法获取不到bena实例对象</span></span><br><span class="line"><span class="comment">	 * 因为后置处理器从Spring IoC容器中取出bean实例对象没有再次放回IoC容器中</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">postProcessBeforeInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;A before--实例化的bean对象:&quot;</span>+bean+<span class="string">&quot;\t&quot;</span>+beanName);</span><br><span class="line">		<span class="comment">// 可以根据beanName不同执行不同的处理操作</span></span><br><span class="line">		<span class="keyword">return</span> bean;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 实例化、依赖注入、初始化完毕时执行 </span></span><br><span class="line"><span class="comment">	 * 注意：方法返回值不能为null</span></span><br><span class="line"><span class="comment">	 * 如果返回null那么在后续初始化方法将报空指针异常或者通过getBean()方法获取不到bena实例对象</span></span><br><span class="line"><span class="comment">	 * 因为后置处理器从Spring IoC容器中取出bean实例对象没有再次放回IoC容器中</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">postProcessAfterInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;A after...实例化的bean对象:&quot;</span>+bean+<span class="string">&quot;\t&quot;</span>+beanName);</span><br><span class="line">		<span class="comment">// 可以根据beanName不同执行不同的处理操作</span></span><br><span class="line">		<span class="keyword">return</span> bean;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//默认值为 0，优先级最高，值越大优先级越低</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ bean的作用域</span><br><span class="line">  1.单例 右beanFactory维护 第一次注入时被创建</span><br><span class="line">  2.多例 每一个get都会获得新的对象</span><br><span class="line">  3.requset  每一个Http请求，创建实例。请求结束会回收</span><br><span class="line">  4.session 每一个session都有一个bean的实例 session过期，bean失效</span><br><span class="line">  5.application  servletContext上下文 复用的单例对象</span><br><span class="line">  6.websocket  websocket 生命周期</span><br><span class="line">  7.全局作用域 global-session </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ spring Bean不是线程安全。 是单例</span><br><span class="line">  针对有状态 的count 存储数据  静态static ，共享变量   不安全</span><br><span class="line">  </span><br><span class="line">  针对无状态的 dao。循环依赖。      安全</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ spring 设计模式</span><br><span class="line">  单例 </span><br><span class="line">  简单工厂</span><br><span class="line">  工厂方法</span><br><span class="line">  模板</span><br><span class="line">  适配器 springMVC 的适配不同的接口</span><br><span class="line">  装饰器 wrapper Decorator</span><br><span class="line">  动态代理 aop</span><br><span class="line">  观察者 监听器</span><br><span class="line">  策略模式 访问资源</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ spring 事务</span><br><span class="line"> 申明式事务 @Transactional 设置自动提交为<span class="literal">false</span>，不发生异常，进行提交事务</span><br><span class="line"></span><br><span class="line"> 编程式事务 xml 配置  手动提交事务</span><br><span class="line"> </span><br><span class="line"> 事务级别：</span><br><span class="line"> 1.读未提交</span><br><span class="line"> 2.不可重复读</span><br><span class="line"> 3.可以重复读</span><br><span class="line"> 4.可串行化</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ 事务传播机制</span><br><span class="line">  1.require 默认      被调用方 无就创建事务，有就加入事务</span><br><span class="line">  2.supports               被调用方 有事务加入事务  没有事务就非事务运行</span><br><span class="line">  3.mandatory              有事务就一起，没有就异常</span><br><span class="line">  4.requires_new         另起一个新的事务 不与之前的事务一起</span><br><span class="line">  5.not_supproted    非事务运行，如果有事务，就新建事务。不与之前的事务一起</span><br><span class="line">  6.never               不能存在事务 ，否则异常</span><br><span class="line">  7.nested         开始新事务    或者嵌套父子事务 父回滚 子会回滚  </span><br><span class="line">                       子回滚 父不一定回滚</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  事务失效： aop失效</span><br><span class="line">  1.自调用 不发生代理类  this.方法</span><br><span class="line">  2.方法不是public  @Transactional与public配套。非public与AspectJ的代理模式</span><br><span class="line">  3.数据库不支持事务</span><br><span class="line">  4.没有被spring管理</span><br><span class="line">  5.异常被吃掉， 事务不会回滚（异常与注意的异常不同）</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ bean的自动装配</span><br><span class="line">  autowired </span><br><span class="line">  ref 手动装配属性</span><br><span class="line">  baName     按名字</span><br><span class="line">  byType  类型</span><br><span class="line">  byconstructor  构造器</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ springboot自动配置原理</span><br><span class="line"></span><br><span class="line">  @springbootApplication 3合1注解</span><br><span class="line">  </span><br><span class="line">  @SpringBootConfiguration           配置注解</span><br><span class="line">  @ComponentScan                     包扫描路径      </span><br><span class="line">  @EnableAutoConfiguration           自懂配置</span><br><span class="line">  </span><br><span class="line">  @AutoConfigurationpackage           手动注册bean</span><br><span class="line">  SpringBoot启动过程中，会加载项目中所有的META-INF/Spring.factories文件，里面包含了很多自动配置类，每个类上都有一个@Configuration注解，标识它是一个配置类，但是配置不一定都生效，因为它里面还有一个条件注解@ConditionalOnClass，必须满足这个条件注解，配置才会生效。我们只需要加入一个相关功能的启动器依赖，就可以使得条件注解生效，配置类也就生效了。</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/25/spring%E9%9D%A2%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/24/java%E5%B9%B6%E5%8F%91/">并发包</a>
+    <h1 class="article-title" itemprop="name">
+      并发包
     </h1>
   
 
@@ -887,6 +304,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -894,16 +332,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/24/java%E5%B9%B6%E5%8F%91/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/04/24/java%E5%B9%B6%E5%8F%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/04/25/spring%E9%9D%A2%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spring
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/04/18/%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">集合</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -923,351 +429,14 @@
 
 
 
-
-  
-    <article id="post-集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/18/%E9%9B%86%E5%90%88/">集合</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/18/%E9%9B%86%E5%90%88/" class="archive-article-date">
-  	<time datetime="2022-04-18T14:18:04.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>什么是 面向对象</p>
-<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="list和-set"><a href="#list和-set" class="headerlink" title="list和 set"></a>list和 set</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ list 有序 可以重复 可以null  可以用迭代器 和索引</span><br><span class="line">  <span class="built_in">set</span>  无序 不重复 只有一个null 只可以用迭代器</span><br></pre></td></tr></table></figure>
-
-<h2 id="hashCode和equals"><a href="#hashCode和equals" class="headerlink" title="hashCode和equals"></a>hashCode和equals</h2><h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode"></a>hashCode</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ 获取散列码 快速找到  对象存储的内存位置     快读检索对应的值</span><br><span class="line">  可以检查重复快</span><br></pre></td></tr></table></figure>
-
-<h3 id="哪些集合类是线程安全的"><a href="#哪些集合类是线程安全的" class="headerlink" title="哪些集合类是线程安全的"></a>哪些集合类是线程安全的</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">vector：就比arraylist多了个同步化机制（线程安全），因为效率较低，现在已经不太建议使用。在web应用中，特别是前台页面，往往效率（页面响应速度）是优先考虑的。</span><br><span class="line">statck：堆栈类，先进后出。</span><br><span class="line">hashtable：就比hashmap多了个线程安全。</span><br><span class="line">enumeration：枚举，相当于迭代器。</span><br></pre></td></tr></table></figure>
-
-<h4 id="如何边遍历边移除-Collection-中的元素？"><a href="#如何边遍历边移除-Collection-中的元素？" class="headerlink" title="如何边遍历边移除 Collection 中的元素？"></a>如何边遍历边移除 Collection 中的元素？</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">Iterator&lt;Integer&gt; it = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">   *// <span class="keyword">do</span> something*</span><br><span class="line">   it.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="BlockingQueue是什么？"><a href="#BlockingQueue是什么？" class="headerlink" title="BlockingQueue是什么？"></a>BlockingQueue是什么？</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">Java.util.concurrent.BlockingQueue是一个队列，在进行检索或移除一个元素的时候，它会等待队列变为非空；当在添加一个元素时，它会等待队列中的可用空间。BlockingQueue接口是Java集合框架的一部分，主要用于实现生产者-消费者模式。我们不需要担心等待生产者有可用的空间，或消费者有可用的对象，因为它都在BlockingQueue的实现类中被处理了。Java提供了集中BlockingQueue的实现，比如ArrayBlockingQueue、LinkedBlockingQueue、PriorityBlockingQueue,、SynchronousQueue等。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">相同点：都是返回第一个元素，并在队列中删除返回的对象。</span><br><span class="line">不同点：如果没有元素 poll()会返回 null，而 remove()会直接抛出 NoSuchElementException 异常。</span><br></pre></td></tr></table></figure>
-
-<p>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;String&gt; queue = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">queue. offer(<span class="string">&quot;string&quot;</span>); <span class="comment">// add</span></span><br><span class="line">System. out. println(queue. poll());</span><br><span class="line">System. out. println(queue. remove());</span><br><span class="line">System. out. println(queue. size());</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">$ &amp;  与 两个位都为1时，结果才为1</span><br><span class="line">  |   或 两个位都为0时，结果才为0</span><br><span class="line">   ^  异或  两个位相同为0，相异为1</span><br><span class="line">  ~  取反   0变1，1变0</span><br><span class="line">  &lt;&lt;  左移  各二进位全部左移若干位，高位丢弃，低位补0</span><br><span class="line">  &gt;&gt; 右移  各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补0（逻辑右移）</span><br><span class="line">  </span><br><span class="line">  &amp;=        例：a&amp;=b    相当于     a=a&amp;b</span><br><span class="line"></span><br><span class="line">|=        例：a|=b    相当于     a=a|b</span><br><span class="line"></span><br><span class="line">&gt;&gt;=      例：a&gt;&gt;=b   相当于     a=a&gt;&gt;b</span><br><span class="line"></span><br><span class="line">&lt;&lt;=      例：a&lt;&lt;=b     相当于      a=a&lt;&lt;<span class="string">b</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">^=        例：a^=b</span>    相当于   a=a^b</span><br><span class="line">  </span><br><span class="line">  例子 ：3&amp;5 即 0000 0011&amp; 0000 0101 = 0000 0001，因此 3&amp;5 的值得1。</span><br><span class="line">  </span><br><span class="line">&amp;  用途： </span><br><span class="line">1）清零</span><br><span class="line"></span><br><span class="line">如果想将一个单元清零，即使其全部二进制位为0，只要与一个各位都为零的数值相与，结果为零。</span><br><span class="line"></span><br><span class="line">2）取一个数的指定位</span><br><span class="line"></span><br><span class="line">比如取数 X=1010 1110 的低4位，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行按位与运算（X&amp;Y=0000 1110）即可得到X的指定位。</span><br><span class="line"></span><br><span class="line">3）判断奇偶</span><br><span class="line"></span><br><span class="line">只要根据最未位是0还是1来决定，为0就是偶数，为1就是奇数。因此可以用<span class="keyword">if</span> ((a &amp; 1) == 0)代替<span class="keyword">if</span> (a % 2 == 0)来判断a是不是偶数。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">|  或运算的用途：</span><br><span class="line"></span><br><span class="line">1）常用来对一个数据的某些位设置为1</span><br><span class="line"></span><br><span class="line">比如将数 X=1010 1110 的低4位设置为1，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行按位或运算（X|Y=1010 1111）即可得到。</span><br><span class="line">  </span><br><span class="line">^   异或  两个位相同为0，相异为1</span><br><span class="line">1、交换律</span><br><span class="line">2、结合律 (a^b)^c == a^(b^c)</span><br><span class="line">3、对于任何数x，都有 x^x=0，x^0=x</span><br><span class="line">4、自反性: a^b^b=a^0=a;</span><br><span class="line">^   异或运算的用途：</span><br><span class="line"></span><br><span class="line">1）翻转指定位</span><br><span class="line"></span><br><span class="line">比如将数 X=1010 1110 的低4位进行翻转，只需要另找一个数Y，令Y的低4位为1，其余位为0，即Y=0000 1111，然后将X与Y进行异或运算（X^Y=1010 0001）即可得到。</span><br><span class="line"></span><br><span class="line">2）与0相异或值不变</span><br><span class="line"></span><br><span class="line">例如：1010 1110 ^ 0000 0000 = 1010 1110</span><br><span class="line"></span><br><span class="line">3）交换两个数</span><br><span class="line"></span><br><span class="line">void Swap(int &amp;a, int &amp;b)&#123;      2                3                4</span><br><span class="line">    <span class="keyword">if</span> (a != b)&#123;                 0010              0011            0100</span><br><span class="line">        a ^= b;                  a^= 0011     -&gt; a=0001        -&gt; a=0111 </span><br><span class="line">                                 得出 现在a的值 与 之前变量a的值 进行^运算 得到b（现在a的值会改变）</span><br><span class="line">        b ^= a;                  b=0010                        b=0100</span><br><span class="line">        a ^= b;                  a=0011                        a=0011</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h2 id="hashmap源码解析"><a href="#hashmap源码解析" class="headerlink" title="hashmap源码解析"></a>hashmap源码解析</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line">$   //数组家链表。初始数组为16 扩容因子0.75   链表尾插法。 链表到8，数组超过64.转为红黑树 </span><br><span class="line">    public V put(K key, V value) &#123;</span><br><span class="line">        <span class="built_in">return</span> putVal(<span class="built_in">hash</span>(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    链表高度到8 数组长度超过64   链表转化为红黑树</span><br><span class="line">    //计算 <span class="built_in">hash</span>值    无符号右移16位 </span><br><span class="line">    //然后做异或运算  相同变0  不相同变1</span><br><span class="line">    // 原 hashcode和低16位进行异或运算 减少碰撞</span><br><span class="line">    static final int <span class="built_in">hash</span>(Object key) &#123;</span><br><span class="line">        int h;</span><br><span class="line">        <span class="built_in">return</span> (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //插入 </span><br><span class="line">    // n位数组的长度</span><br><span class="line">     final V putVal(int <span class="built_in">hash</span>, K key, V value, boolean onlyIfAbsent,</span><br><span class="line">                   boolean evict) &#123;</span><br><span class="line">        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;</span><br><span class="line">        //如果一开始数组为null或者长度为0，进行resize()扩容方法</span><br><span class="line">        <span class="keyword">if</span> ((tab = table) == null || (n = tab.length) == 0)</span><br><span class="line">            //resize()初始化返回16</span><br><span class="line">            n = (tab = resize()).length;</span><br><span class="line">        //    计算该位置是否为null  ，(n - 1) &amp; <span class="built_in">hash</span>计算数组下标的</span><br><span class="line">        <span class="keyword">if</span> ((p = tab[i = (n - 1) &amp; <span class="built_in">hash</span>]) == null)</span><br><span class="line">             //插入一个值</span><br><span class="line">            tab[i] = newNode(<span class="built_in">hash</span>, key, value, null);</span><br><span class="line">            //该位置 有值</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;K,V&gt; e; K k;</span><br><span class="line">            //该位置的<span class="built_in">hash</span>值 与现在的值得<span class="built_in">hash</span>值是否相等</span><br><span class="line">            //并且key的值是否相等      或者key不等于空，是相等</span><br><span class="line">            <span class="keyword">if</span> (p.hash == <span class="built_in">hash</span> &amp;&amp;</span><br><span class="line">                ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))</span><br><span class="line">                //替换该值</span><br><span class="line">                e = p;</span><br><span class="line">                // 是否红黑树节点</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p instanceof TreeNode)</span><br><span class="line">                //存放红黑树</span><br><span class="line">                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, <span class="built_in">hash</span>, key, value);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                //不是红黑树，链表  binCount = 0</span><br><span class="line">                <span class="keyword">for</span> (int binCount = 0; ; ++binCount) &#123;</span><br><span class="line">                    //p的下一个节点是否为空</span><br><span class="line">                    <span class="keyword">if</span> ((e = p.next) == null) &#123;</span><br><span class="line">                        //放入下一个节点</span><br><span class="line">                        p.next = newNode(<span class="built_in">hash</span>, key, value, null);</span><br><span class="line">                        //链表树化（treeifyBin）发生在，链表长度大于8</span><br><span class="line">              //并且treeifyBin方法内会判断，只有在数组长度大于等于64才会真去树化，否则会先扩容</span><br><span class="line">// 链表树化的那一刻，它的真实长度应该时binCount+1+1 =&gt; 链表长度&gt;TREEIFY_THRESHOLD(8)</span><br><span class="line">                        <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 <span class="keyword">for</span> 1st</span><br><span class="line">                            treeifyBin(tab, <span class="built_in">hash</span>);</span><br><span class="line">                        <span class="built_in">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    //替换值</span><br><span class="line">                    <span class="keyword">if</span> (e.hash == <span class="built_in">hash</span> &amp;&amp;</span><br><span class="line">                        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))</span><br><span class="line">                        <span class="built_in">break</span>;</span><br><span class="line">                    p = e;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            //返回旧值</span><br><span class="line">            <span class="keyword">if</span> (e != null) &#123; // existing mapping <span class="keyword">for</span> key</span><br><span class="line">                V oldValue = e.value;</span><br><span class="line">                <span class="keyword">if</span> (!onlyIfAbsent || oldValue == null)</span><br><span class="line">                    e.value = value;</span><br><span class="line">                afterNodeAccess(e);</span><br><span class="line">                <span class="built_in">return</span> oldValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //元素个数加一</span><br><span class="line">        ++modCount;</span><br><span class="line">        //判断个数是否超过界限，就扩容</span><br><span class="line">        <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">            resize();</span><br><span class="line">        afterNodeInsertion(evict);</span><br><span class="line">        <span class="built_in">return</span> null;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //扩容方法 </span><br><span class="line">     final Node&lt;K,V&gt;[] <span class="function"><span class="title">resize</span></span>() &#123;</span><br><span class="line">        Node&lt;K,V&gt;[] oldTab = table;</span><br><span class="line">        int oldCap = (oldTab == null) ? 0 : oldTab.length;</span><br><span class="line">        int oldThr = threshold;</span><br><span class="line">        int newCap, newThr = 0;</span><br><span class="line">       </span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt; 0) &#123;</span><br><span class="line">           //如果大于等于 1 &lt;&lt; <span class="string">30这个值,就用 Integer的最大值0x7fffffff</span></span><br><span class="line"><span class="string">            if (oldCap &gt;= MAXIMUM_CAPACITY) &#123;</span></span><br><span class="line"><span class="string">                threshold = Integer.MAX_VALUE;</span></span><br><span class="line"><span class="string">                return oldTab;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">            //小于 1&lt;&lt;&lt;30</span> 大于 1 &lt;&lt; <span class="string">4，就扩容一倍</span></span><br><span class="line"><span class="string">            else if ((newCap = oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACITY &amp;&amp;</span></span><br><span class="line"><span class="string">                     oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span></span><br><span class="line"><span class="string">                newThr = oldThr &lt;&lt; 1; // double threshold</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        else if (oldThr &gt; 0) // initial capacity was placed in threshold</span></span><br><span class="line"><span class="string">            newCap = oldThr;</span></span><br><span class="line"><span class="string">        else &#123;               // zero initial threshold signifies using defaults</span></span><br><span class="line"><span class="string">             //如果为0 ，就初始数组16   //界限12</span></span><br><span class="line"><span class="string">            newCap = DEFAULT_INITIAL_CAPACITY;</span></span><br><span class="line"><span class="string">            newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        if (newThr == 0) &#123;</span></span><br><span class="line"><span class="string">            float ft = (float)newCap * loadFactor;</span></span><br><span class="line"><span class="string">            newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (float)MAXIMUM_CAPACITY ?</span></span><br><span class="line"><span class="string">                      (int)ft : Integer.MAX_VALUE);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        threshold = newThr;</span></span><br><span class="line"><span class="string">        @SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;)</span></span><br><span class="line"><span class="string">            Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newCap];</span></span><br><span class="line"><span class="string">        table = newTab;</span></span><br><span class="line"><span class="string">        if (oldTab != null) &#123;</span></span><br><span class="line"><span class="string">            for (int j = 0; j &lt; oldCap; ++j) &#123;</span></span><br><span class="line"><span class="string">                Node&lt;K,V&gt; e;</span></span><br><span class="line"><span class="string">                if ((e = oldTab[j]) != null) &#123;</span></span><br><span class="line"><span class="string">                    oldTab[j] = null;</span></span><br><span class="line"><span class="string">                    if (e.next == null)</span></span><br><span class="line"><span class="string">                        newTab[e.hash &amp; (newCap - 1)] = e;</span></span><br><span class="line"><span class="string">                    else if (e instanceof TreeNode)</span></span><br><span class="line"><span class="string">                        ((TreeNode&lt;K,V&gt;)e).split(this, newTab, j, oldCap);</span></span><br><span class="line"><span class="string">                    else &#123; // preserve order</span></span><br><span class="line"><span class="string">                        Node&lt;K,V&gt; loHead = null, loTail = null;</span></span><br><span class="line"><span class="string">                        Node&lt;K,V&gt; hiHead = null, hiTail = null;</span></span><br><span class="line"><span class="string">                        Node&lt;K,V&gt; next;</span></span><br><span class="line"><span class="string">                        do &#123;</span></span><br><span class="line"><span class="string">                            next = e.next;</span></span><br><span class="line"><span class="string">                            if ((e.hash &amp; oldCap) == 0) &#123;</span></span><br><span class="line"><span class="string">                                if (loTail == null)</span></span><br><span class="line"><span class="string">                                    loHead = e;</span></span><br><span class="line"><span class="string">                                else</span></span><br><span class="line"><span class="string">                                    loTail.next = e;</span></span><br><span class="line"><span class="string">                                loTail = e;</span></span><br><span class="line"><span class="string">                            &#125;</span></span><br><span class="line"><span class="string">                            else &#123;</span></span><br><span class="line"><span class="string">                                if (hiTail == null)</span></span><br><span class="line"><span class="string">                                    hiHead = e;</span></span><br><span class="line"><span class="string">                                else</span></span><br><span class="line"><span class="string">                                    hiTail.next = e;</span></span><br><span class="line"><span class="string">                                hiTail = e;</span></span><br><span class="line"><span class="string">                            &#125;</span></span><br><span class="line"><span class="string">                        &#125; while ((e = next) != null);</span></span><br><span class="line"><span class="string">                        if (loTail != null) &#123;</span></span><br><span class="line"><span class="string">                            loTail.next = null;</span></span><br><span class="line"><span class="string">                            newTab[j] = loHead;</span></span><br><span class="line"><span class="string">                        &#125;</span></span><br><span class="line"><span class="string">                        if (hiTail != null) &#123;</span></span><br><span class="line"><span class="string">                            hiTail.next = null;</span></span><br><span class="line"><span class="string">                            newTab[j + oldCap] = hiHead;</span></span><br><span class="line"><span class="string">                        &#125;</span></span><br><span class="line"><span class="string">                    &#125;</span></span><br><span class="line"><span class="string">                &#125;</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        return newTab;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="各种hashMap"><a href="#各种hashMap" class="headerlink" title="各种hashMap"></a>各种hashMap</h2><h3 id="各种hashMap-1"><a href="#各种hashMap-1" class="headerlink" title="各种hashMap"></a>各种hashMap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hashTable          synchronized关键字标识</span><br><span class="line">  concurrentHashMap       只锁对应的链表 里面有volatile CAS乐观锁+synchronized</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/18/%E9%9B%86%E5%90%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java8基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/18/java8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">java8基础知识</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/18/java8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2022-04-18T13:39:28.021Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="java8基础知识"><a href="#java8基础知识" class="headerlink" title="java8基础知识"></a>java8基础知识</h2><h3 id="基本类型-是变量值的比较-引用类型是内存对象的地址的比较"><a href="#基本类型-是变量值的比较-引用类型是内存对象的地址的比较" class="headerlink" title="基本类型 是变量值的比较          引用类型是内存对象的地址的比较"></a>基本类型 是变量值的比较          引用类型是内存对象的地址的比较</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ equals是object默认是用==比较，所以经常重写equals来比较对象</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ string的已经重写equals，所以可以用equals来比较相同</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ new String(<span class="string">&quot;abc&quot;</span>)    创建了2个对象 常量池和堆内存</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="final定义"><a href="#final定义" class="headerlink" title="final定义"></a>final定义</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ final类 不可以被继承  </span><br><span class="line">  final方法   不可以重写</span><br><span class="line">  final变量 不可以再次更改（赋值后）</span><br><span class="line">       成员变量      申明，构造器，普通代码块 赋值</span><br><span class="line">       局部变量    使用前 有赋值</span><br><span class="line">       基本数据类型      只能一次赋值，不能更改</span><br><span class="line">       引用数据类型  可以修改值 ，不能指向另一个对象(null)</span><br></pre></td></tr></table></figure>
-
-<h3 id="String-，StringBuilder，-Stringbuuffer"><a href="#String-，StringBuilder，-Stringbuuffer" class="headerlink" title="String ，StringBuilder， Stringbuuffer"></a>String ，StringBuilder， Stringbuuffer</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ string, final修饰，不可变，每次操作都是新的对象</span><br><span class="line">  StringBuffer,原对象上操作 线程安全  synchronized 修饰</span><br><span class="line">  Stringbuilder 原对象操作 线程不安全</span><br></pre></td></tr></table></figure>
-
-<h3 id="重写和重载"><a href="#重写和重载" class="headerlink" title="重写和重载"></a>重写和重载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ 重载 方法名相同， 同一个类中，入参不同</span><br><span class="line">  重写 子类重写父类方法   返回值范围小于等于父类 ，异常范围要小于父类，修饰符大于父类 private不可以重写</span><br></pre></td></tr></table></figure>
-
-<h3 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h3><table>
-<thead>
-<tr>
-<th>访问修饰符</th>
-<th>当前类（单例创建）</th>
-<th>同包（测试类）</th>
-<th>子类</th>
-<th>其他包（不同文件夹）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>private</td>
-<td>对</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>default</td>
-<td>对</td>
-<td>对</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>protected</td>
-<td>对</td>
-<td>对</td>
-<td>对</td>
-<td></td>
-</tr>
-<tr>
-<td>public</td>
-<td>对</td>
-<td>对</td>
-<td>对</td>
-<td>对</td>
-</tr>
-</tbody></table>
-<h3 id="接口对比抽象类"><a href="#接口对比抽象类" class="headerlink" title="接口对比抽象类"></a>接口对比抽象类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ 相同点</span><br><span class="line">接口和抽象类都不能实例化</span><br><span class="line">都位于继承的顶端，用于被其他实现或继承</span><br><span class="line">都包含抽象方法，其子类都必须覆写这些抽象方法</span><br></pre></td></tr></table></figure>
-
-<p><strong>不同点</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>抽象类</strong></th>
-<th><strong>接口</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>声明</td>
-<td>抽象类使用abstract关键字声明</td>
-<td>接口使用interface关键字声明</td>
-</tr>
-<tr>
-<td>实现</td>
-<td>子类使用extends关键字来继承抽象类。如果子类不是抽象类的话，它需要提供抽象类中所有声明的方法的实现</td>
-<td>子类使用implements关键字来实现接口。它需要提供接口中所有声明的方法的实现</td>
-</tr>
-<tr>
-<td>构造器</td>
-<td>抽象类可以有构造器</td>
-<td>接口不能有构造器</td>
-</tr>
-<tr>
-<td>访问修饰符</td>
-<td>抽象类中的方法可以是任意访问修饰符</td>
-<td>接口方法默认修饰符是public。并且不允许定义为 private 或者 protected</td>
-</tr>
-<tr>
-<td>多继承</td>
-<td>一个类最多只能继承一个抽象类</td>
-<td>一个类可以实现多个接口</td>
-</tr>
-<tr>
-<td>字段声明</td>
-<td>抽象类的字段声明可以是任意的</td>
-<td>接口的字段默认都是 static 和 final 的</td>
-</tr>
-</tbody></table>
-<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ reentrantlock 锁       非公平锁，性能高点，当前线程可重入锁</span><br><span class="line">   reentrantLock.lock   直接甲锁</span><br><span class="line">   reentrantLock.tryLock     尝试加锁     自选锁</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   公平锁与非公平锁      体现在</span><br><span class="line">   公平锁，   AQS队列是否排队，有排队，就排队</span><br><span class="line">   非公平锁     直接参与到竞争锁</span><br><span class="line">   </span><br><span class="line">   当都没活动锁时候，就会排队 。当锁释放时，会唤醒排在最前面的线程</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   Synchronized 的偏向锁 轻量级锁   重量级锁</span><br><span class="line">    </span><br><span class="line">锁主要存在四种状态，依次是：无锁状态、偏向锁状态、轻量级锁状态、重量级锁状态，锁可以从偏向锁升级到轻量级锁，再升级的重量级锁。但是锁的升级是单向的，也就是说只能从低到高升级，不会出现锁的降级。</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th>锁</th>
-<th>优点</th>
-<th>缺点</th>
-<th>适用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>偏向锁</td>
-<td>加锁和解锁不需要额外的消耗，和执行非同步方法仅有纳米级的差距</td>
-<td>如果线程间存在锁的竞争，会带来额外的锁撤销的消耗</td>
-<td>适用于只有一个线程访问的同步块场景</td>
-</tr>
-<tr>
-<td>轻量级锁</td>
-<td>竞争的线程不会阻塞，提高了程序的相应速度</td>
-<td>如果始终得不到锁竞争的线程，使用自旋会消耗CPU    追求响应时间</td>
-<td>追求响应时间<br/>同步响应非常快</td>
-</tr>
-<tr>
-<td>重量级锁</td>
-<td>线程竞争不使用自旋，不会消耗CPU</td>
-<td>线程阻塞，响应时间缓慢    追求吞吐量</td>
-<td>同步块执行速度较长</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>Synchronized</th>
-<th>reentrantLock</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>关键字</td>
-<td>类</td>
-</tr>
-<tr>
-<td>自动加锁 释放锁</td>
-<td>手动加锁和释放锁</td>
-</tr>
-<tr>
-<td>Jvm层面的锁</td>
-<td>api层面的锁</td>
-</tr>
-<tr>
-<td>非公平锁</td>
-<td>非公平锁或公平锁</td>
-</tr>
-<tr>
-<td>锁对象，锁信息保持在对象头，锁的升级</td>
-<td>代码中int的state标识的</td>
-</tr>
-</tbody></table>
-<h3 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ThreadLocal  </span><br><span class="line"> 本地线程缓存</span><br><span class="line"> ThreadLocalMap 存储 key 的ThreadLocal对象  。value是缓存的值</span><br><span class="line"> </span><br><span class="line"> 值太多，线程没结束，会有机会出现内存泄漏问题。可以调用。remove方法清除</span><br><span class="line"> </span><br><span class="line">$ 存储本地线程中 对象及其对应的值</span><br><span class="line"></span><br><span class="line">  ThreadLocalMap 容器 弱引用，没指向强引用，会被垃圾回收器回收。用完要remove()清除数据</span><br><span class="line">  </span><br><span class="line">  强引用： new 出来的对象，赋值为null，可以jvm回收</span><br><span class="line">  弱引用： JVm进行垃圾回收，就会回收（不关内存是否充足）</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="TCP的3次握手-和4次挥手"><a href="#TCP的3次握手-和4次挥手" class="headerlink" title="TCP的3次握手 和4次挥手"></a>TCP的3次握手 和4次挥手</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ TCP协议是7层网络协议中传输层协议，负责数据的可靠传输</span><br><span class="line">在建立TCP链接是。需要通过3次握手建立：</span><br><span class="line">1.客户端向服务端发送一个SYn；</span><br><span class="line">2.服务端收到SYN后，向客户端发送一个SYN_ACk;</span><br><span class="line">3.客户端收到SYN_ACK后，再给服务端发送一个ACk</span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ 在断开TCP连接时，需要通过4次挥手来断开，过程是：</span><br><span class="line">1.客户端向服务端发送FIN；</span><br><span class="line">2.服务端收到FIN后，向客户端发送ACk，表示我接收到断开连接的请求，客户端你可以不发数据，不过服务端这边可能还有数据正在处理</span><br><span class="line">3.服务端处理完所有数据后，向客户端发送FIn，表示服务端现在可以断开连接</span><br><span class="line">4.客户端收到服务端的FIN，向服务端发送ACk。表示客户端也会断开连接</span><br></pre></td></tr></table></figure>
-
-<h3 id="如何实现IOC容器"><a href="#如何实现IOC容器" class="headerlink" title="如何实现IOC容器"></a>如何实现IOC容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ 1.配置文件扫描包路径</span><br><span class="line">  2.递归包扫描 .class文件</span><br><span class="line">  3.反射，确定需要交给IOC管理的类</span><br><span class="line">  4.对需要注入的类进行依赖注入</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="java类加载器"><a href="#java类加载器" class="headerlink" title="java类加载器"></a>java类加载器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ 1.bootstrap ClassLoader      顶级加载器  加载java Home的环境变量</span><br><span class="line">  2.ExtClassLoader                     javaHome/ext的jar包环境变量</span><br><span class="line">  3.AppClassLoader                 系统类加载器，线程上下文加载器   加载classPath下的类文件</span><br><span class="line">  4.自定义类加载器   继承ClassLoader实现自定义类加载器</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ 首先委派自己的父类加载器 委派 加载，(在缓存中查找)</span><br><span class="line">  向下查找 查找加载路径 到最后的classPath还是没有，就出现找不到主类异常</span><br><span class="line">  </span><br><span class="line">  安全性，防止类的重复加载，避免核心类的修改</span><br></pre></td></tr></table></figure>
-
-<h3 id="GC如何判断对象可以被回收"><a href="#GC如何判断对象可以被回收" class="headerlink" title="GC如何判断对象可以被回收"></a>GC如何判断对象可以被回收</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ 引用计数法： 引用加1，释放-1 。为0就回收  循环引用会产生bug</span><br><span class="line">  可达性分析法:  GC Roots开始向下搜索，搜索所走过的路径为引用链。没有任何引用链相连时，证明对象时不可用，   可以判断为可回收对象，先标记没有被引用。虚拟机扫描是否需要执行 finalize方法。执行方法后，可以根据判断再   复活</span><br><span class="line">  GC Roots的对象有：</span><br><span class="line">  虚拟机栈中引用的对象。   new 出来的对象</span><br><span class="line">  方法区中静态属性引用的对象  static变量</span><br><span class="line">  方法区中常量引用的对象</span><br><span class="line">  本地方法栈中JNI引用的对象</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="BIO-NIO-AIO-有什么区别"><a href="#BIO-NIO-AIO-有什么区别" class="headerlink" title="BIO,NIO,AIO 有什么区别?"></a>BIO,NIO,AIO 有什么区别?</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">BIO：Block IO 同步阻塞式 IO，就是我们平常使用的传统 IO，它的特点是模式简单使用方便，并发处理能力低。</span><br><span class="line">NIO：Non IO 同步非阻塞 IO，是传统 IO 的升级，客户端和服务器端通过 Channel（通道）通讯，实现了多路复用。</span><br><span class="line">AIO：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了异步非堵塞 IO ，异步 IO 的操作基于事件和回调机制。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">BIO (Blocking I/O): 同步阻塞I/O模式，数据的读取写入必须阻塞在一个线程内等待其完成。在活动连接数不是特别高（小于单机1000）的情况下，这种模型是比较不错的，可以让每一个连接专注于自己的 I/O 并且编程模型简单，也不用过多考虑系统的过载、限流等问题。线程池本身就是一个天然的漏斗，可以缓冲一些系统处理不了的连接或请求。但是，当面对十万甚至百万级连接的时候，传统的 BIO 模型是无能为力的。因此，我们需要一种更高效的 I/O 处理模型来应对更高的并发量。</span><br><span class="line">NIO (New I/O): NIO是一种同步非阻塞的I/O模型，在Java 1.4 中引入了NIO框架，对应 java.nio 包，提供了 Channel , Selector，Buffer等抽象。NIO中的N可以理解为Non-blocking，不单纯是New。它支持面向缓冲的，基于通道的I/O操作方法。 NIO提供了与传统BIO模型中的 Socket 和 ServerSocket 相对应的 SocketChannel 和 ServerSocketChannel 两种不同的套接字通道实现,两种通道都支持阻塞和非阻塞两种模式。阻塞模式使用就像传统中的支持一样，比较简单，但是性能和可靠性都不好；非阻塞模式正好与之相反。对于低负载、低并发的应用程序，可以使用同步阻塞I/O来提升开发速率和更好的维护性；对于高负载、高并发的（网络）应用，应使用 NIO 的非阻塞模式来开发</span><br><span class="line">AIO (Asynchronous I/O): AIO 也就是 NIO 2。在 Java 7 中引入了 NIO 的改进版 NIO 2,它是异步非阻塞的IO模型。异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。AIO 是异步IO的缩写，虽然 NIO 在网络操作中，提供了非阻塞的方法，但是 NIO 的 IO 行为还是同步的。对于 NIO 来说，我们的业务线程是在 IO 操作准备好时，得到通知，接着就由这个线程自行进行 IO 操作，IO操作本身是同步的。查阅网上相关资料，我发现就目前来说 AIO 的应用还不是很广泛，Netty 之前也尝试使用过 AIO，不过又放弃了</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/18/java8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1290,8 +459,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
