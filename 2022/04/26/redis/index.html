@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>redis | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是 面向对象 RedisRedis1234567891011121314$ RDB 和AOF持久化机制  RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。    AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作      频率高，备份数据多，安全多 但是恢复速度慢        redis过期键的删除策略    惰性过期  节省cpu">
+  <meta name="description" content="什么是 面向对象 RedisRDB 和AOF持久化机制123$ RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。  AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作      频率高，备份数据多，安全多 但是恢复速度慢    Redis的过期键的删除策略123456$ 1定时过期：每个设置过期时间的key都需要创建一个定时器，到过期时间就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis">
 <meta property="og:url" content="http://example.com/2022/04/26/redis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="什么是 面向对象 RedisRedis1234567891011121314$ RDB 和AOF持久化机制  RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。    AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作      频率高，备份数据多，安全多 但是恢复速度慢        redis过期键的删除策略    惰性过期  节省cpu">
+<meta property="og:description" content="什么是 面向对象 RedisRDB 和AOF持久化机制123$ RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。  AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作      频率高，备份数据多，安全多 但是恢复速度慢    Redis的过期键的删除策略123456$ 1定时过期：每个设置过期时间的key都需要创建一个定时器，到过期时间就">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-26T15:31:50.829Z">
-<meta property="article:modified_time" content="2022-04-27T05:32:21.948Z">
+<meta property="article:modified_time" content="2022-04-28T08:26:10.664Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -175,33 +175,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>什么是 面向对象</p>
-<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="Redis-1"><a href="#Redis-1" class="headerlink" title="Redis"></a>Redis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ RDB 和AOF持久化机制</span><br><span class="line"></span><br><span class="line">  RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。</span><br><span class="line">  </span><br><span class="line">  AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作</span><br><span class="line">      频率高，备份数据多，安全多 但是恢复速度慢</span><br><span class="line">      </span><br><span class="line">  redis过期键的删除策略</span><br><span class="line">  </span><br><span class="line">  惰性过期  节省cpu资源，浪费更多内存</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  定期过期  每隔一定时间，扫描一定数量的，清除已过期key。节省内存</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="RDB-和AOF持久化机制"><a href="#RDB-和AOF持久化机制" class="headerlink" title="RDB 和AOF持久化机制"></a>RDB 和AOF持久化机制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ RDB 根据间隔一定时间进行持久化，子进程进行备份。二进制存储。</span><br><span class="line">  AOF 每一个操作都进行持久化 3种同步策略 ，每秒同步。每修改同步 和不同步。记录每次操作</span><br><span class="line">      频率高，备份数据多，安全多 但是恢复速度慢  </span><br></pre></td></tr></table></figure>
+
+<h3 id="Redis的过期键的删除策略"><a href="#Redis的过期键的删除策略" class="headerlink" title="Redis的过期键的删除策略"></a>Redis的过期键的删除策略</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ </span><br><span class="line">1定时过期：每个设置过期时间的key都需要创建一个定时器，到过期时间就会立即清除。该策略可以立即清除过期的数据，对内存很友好；但是会占用大量的CPU资源去处理过期的数据，从而影响缓存的响应时间和吞吐量。</span><br><span class="line">2惰性过期：只有当访问一个key时，才会判断该key是否已过期，过期则清除。该策略可以最大化地节省CPU资源，却对内存非常不友好。极端情况可能出现大量的过期key没有再次被访问，从而不会被清除，占用大量内存。</span><br><span class="line">3定期过期：每隔一定的时间，会扫描一定数量的数据库的expires字典中一定数量的key，并清除其中已过期的key。该策略是前两者的一个折中方案。通过调整定时扫描的时间间隔和每次扫描的限定耗时，可以在不同情况下使得CPU和内存资源达到最优的平衡效果。</span><br><span class="line">(expires字典会保存所有设置了过期时间的key的过期时间数据，其中，key是指向键空间中的某个键的指针，value是该键的毫秒精度的UNIX时间戳表示的过期时间。键空间是指该Redis集群中保存的所有键。)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Redis的内存淘汰策略有哪些"><a href="#Redis的内存淘汰策略有哪些" class="headerlink" title="Redis的内存淘汰策略有哪些"></a>Redis的内存淘汰策略有哪些</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ Redis的内存淘汰策略是指在Redis的用于缓存的内存不足时，怎么处理需要新写入且需要申请额外空间的数据。</span><br><span class="line">全局的键空间选择性移除</span><br><span class="line"></span><br><span class="line">noeviction：当内存不足以容纳新写入数据时，新写入操作会报错。</span><br><span class="line">allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key。（这个是最常用的）</span><br><span class="line">allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key。</span><br><span class="line">设置过期时间的键空间选择性移除</span><br><span class="line"></span><br><span class="line">volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key。</span><br><span class="line">volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key。</span><br><span class="line">volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。</span><br><span class="line">总结</span><br><span class="line"></span><br><span class="line">Redis的内存淘汰策略的选取并不会影响过期的key的处理。内存淘汰策略用于处理内存不足时的需要申请额外空间的数据；过期策略用于处理过期的缓存数据。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
+<h3 id="单线程快的原因"><a href="#单线程快的原因" class="headerlink" title="单线程快的原因"></a>单线程快的原因</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ 1.纯内存操作</span><br><span class="line">2.核心是基于非阻塞的IO多路复用机制</span><br><span class="line">3.单线程反而避免多线程的频繁上下文切换带来的性能问题</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="redis面试情景"><a href="#redis面试情景" class="headerlink" title="redis面试情景"></a>redis面试情景</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ 缓存雪崩 缓存在一定时间大面积的失效， 过期时间随机，缓存预热（微服务启动的时候配置缓存）</span><br><span class="line"></span><br><span class="line">  缓存穿透   数据库和缓存都没有。设置到缓存key -null。做之后返回</span><br><span class="line">      布隆过滤器，存放所有的数据，过滤非法请求</span><br><span class="line">      </span><br><span class="line">   缓存击穿     缓存没有，数据库有  热点数据永不过期，及时配置缓存数据   </span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ 单线程快的原因</span><br><span class="line">1.纯内存操作</span><br><span class="line">2.核心是基于非阻塞的IO多路复用机制</span><br><span class="line">3.单线程反而避免多线程的频繁上下文切换带来的性能问题</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="redis-事务"><a href="#redis-事务" class="headerlink" title="redis 事务"></a>redis 事务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 事务开始  ----&gt;命令入队  ----&gt;事务执行</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ 缓存雪崩 缓存在一定时间大面积的失效， 过期时间随机，缓存预热（微服务启动的时候配置缓存）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  缓存穿透   数据库和缓存都没有。设置到缓存key -null。做之后返回</span><br><span class="line">      布隆过滤器，存放所有的数据，过滤非法请求</span><br><span class="line">      </span><br><span class="line">   缓存击穿     缓存没有，数据库有  热点数据永不过期，及时配置缓存数据   </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ redis 事务 </span><br><span class="line">  事务开始  </span><br><span class="line">  </span><br><span class="line">  命令入队</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  事务执行</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ redis 集群方案</span><br><span class="line"></span><br><span class="line"> 哨兵模式：  3个以上做成集群   主从切换 不能保证数据缺失，但是高可用</span><br><span class="line"> </span><br><span class="line"> redis Cluster   哈希槽。多个节点互为主从，互相备份数据。（默认是异步同步）支持配置阻塞同步，不保持强一致性</span><br><span class="line"> </span><br><span class="line"> redis  sharding </span><br></pre></td></tr></table></figure>
+<h3 id="redis-集群方案"><a href="#redis-集群方案" class="headerlink" title="redis 集群方案"></a>redis 集群方案</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ 哨兵模式：  3个以上做成集群   主从切换 不能保证数据缺失，但是高可用</span><br><span class="line"> </span><br><span class="line"> redis Cluster   哈希槽。多个节点互为主从，互相备份数据。（默认是异步同步）支持配置阻塞同步，不保持强一致性</span><br><span class="line"> </span><br><span class="line"> redis  sharding </span><br></pre></td></tr></table></figure>
 
 
       
@@ -307,7 +295,7 @@
   
   
     <a href="/2022/04/26/mysql/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mysql整理</div>
+      <div class="article-nav-title">mysql</div>
       <i class="icon-circle-right"></i>
     </a>
   
