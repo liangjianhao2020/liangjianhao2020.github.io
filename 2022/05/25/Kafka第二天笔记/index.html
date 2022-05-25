@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Kafka第二天课堂笔记Kafka中的分区副本机制生产者的分区写入策略 轮询（按照消息尽量保证每个分区的负载）策略，消息会均匀地分布到每个partition 写入消息的时候，key为null的时候，默认使用的是轮询策略   随机策略（不使用） 按key写入策略，key.hash() % 分区的数量 自定义分区策略（类似于MapReduce指定分区）   乱序问题  在Kafka中生产者是有写入策略">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kafka第二天课堂笔记Kafka中的分区副本机制生产者的分区写入策略 轮询（按照消息尽量保证每个分区的负载）策略，消息会均匀地分布到每个partition 写入消息的时候，key为null的时候，默认使用的是轮询策略   随机策略（不使用） 按key写入策略，key.hash() % 分区的数量 自定义分区策略（类似于MapReduce指定分区）   乱序问题  在Kafka中生产者是有写入策略">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-25T04:25:15.669Z">
+<meta property="article:modified_time" content="2020-10-27T08:31:06.953Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,271 +154,347 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Kafka第二天笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Kafka第二天课堂笔记"><a href="#Kafka第二天课堂笔记" class="headerlink" title="Kafka第二天课堂笔记"></a>Kafka第二天课堂笔记</h1><h2 id="Kafka中的分区副本机制"><a href="#Kafka中的分区副本机制" class="headerlink" title="Kafka中的分区副本机制"></a>Kafka中的分区副本机制</h2><h3 id="生产者的分区写入策略"><a href="#生产者的分区写入策略" class="headerlink" title="生产者的分区写入策略"></a>生产者的分区写入策略</h3><ul>
+<li>轮询（按照消息尽量保证每个分区的负载）策略，消息会均匀地分布到每个partition<ul>
+<li>写入消息的时候，key为null的时候，默认使用的是轮询策略</li>
+</ul>
+</li>
+<li>随机策略（不使用）</li>
+<li>按key写入策略，key.hash() % 分区的数量</li>
+<li>自定义分区策略（类似于MapReduce指定分区）</li>
+</ul>
+<blockquote>
+<p>乱序问题</p>
+<ul>
+<li>在Kafka中生产者是有写入策略，如果topic有多个分区，就会将数据分散在不同的partition中存储</li>
+<li>当partition数量大于1的时候，数据（消息）会打散分布在不同的partition中</li>
+<li>如果只有一个分区，消息是有序的</li>
+</ul>
+</blockquote>
+<h3 id="消费组Consumer-Group-Rebalance机制"><a href="#消费组Consumer-Group-Rebalance机制" class="headerlink" title="消费组Consumer Group Rebalance机制"></a>消费组Consumer Group Rebalance机制</h3><ul>
+<li>再均衡：在某些情况下，消费者组中的消费者消费的分区会产生变化，会导致消费者分配不均匀（例如：有两个消费者消费3个，因为某个partition崩溃了，还有一个消费者当前没有分区要削峰），Kafka Consumer Group就会启用rebalance机制，重新平衡这个Consumer Group内的消费者消费的分区分配。</li>
+<li>触发时机<ul>
+<li>消费者数量发生变化<ul>
+<li>某个消费者crash</li>
+<li>新增消费者</li>
+</ul>
+</li>
+<li>topic的数量发生变化<ul>
+<li>某个topic被删除</li>
+</ul>
+</li>
+<li>partition的数量发生变化<ul>
+<li>删除partition</li>
+<li>新增partition</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>不良影响<ul>
+<li>发生rebalance，所有的consumer将不再工作，共同来参与再均衡，直到每个消费者都已经被成功分配所需要消费的分区为止（rebalance结束）</li>
+</ul>
+</li>
+</ul>
+<h3 id="消费者的分区分配策略"><a href="#消费者的分区分配策略" class="headerlink" title="消费者的分区分配策略"></a>消费者的分区分配策略</h3><p>分区分配策略：保障每个消费者尽量能够均衡地消费分区的数据，不能出现某个消费者消费分区的数量特别多，某个消费者消费的分区特别少</p>
+<ul>
+<li>Range分配策略（范围分配策略）：Kafka默认的分配策略<ul>
+<li>n：分区的数量 / 消费者数量</li>
+<li>m：分区的数量 % 消费者数量</li>
+<li>前m个消费者消费n+1个分区</li>
+<li>剩余的消费者消费n个分区</li>
+</ul>
+</li>
+<li>RoundRobin分配策略（轮询分配策略）<ul>
+<li>消费者挨个分配消费的分区</li>
+</ul>
+</li>
+<li>Striky粘性分配策略<ul>
+<li>在没有发生rebalance跟轮询分配策略是一致的</li>
+<li>发生了rebalance，轮询分配策略，重新走一遍轮询分配的过程。而粘性会保证跟上一次的尽量一致，只是将新的需要分配的分区，均匀的分配到现有可用的消费者中即可</li>
+<li>减少上下文的切换</li>
+</ul>
+</li>
+</ul>
+<h3 id="副本的ACK机制"><a href="#副本的ACK机制" class="headerlink" title="副本的ACK机制"></a>副本的ACK机制</h3><p>producer是不断地往Kafka中写入数据，写入数据会有一个返回结果，表示是否写入成功。这里对应有一个ACKs的配置。</p>
+<ul>
+<li>acks = 0：生产者只管写入，不管是否写入成功，可能会数据丢失。性能是最好的</li>
+<li>acks = 1：生产者会等到leader分区写入成功后，返回成功，接着发送下一条</li>
+<li>acks = -1/all：确保消息写入到leader分区、还确保消息写入到对应副本都成功后，接着发送下一条，性能是最差的</li>
+</ul>
+<p>根据业务情况来选择ack机制，是要求性能最高，一部分数据丢失影响不大，可以选择0/1。如果要求数据一定不能丢失，就得配置为-1/all。</p>
+<p>分区中是有leader和follower的概念，为了确保消费者消费的数据是一致的，只能从分区leader去读写消息，follower做的事情就是同步数据，Backup。</p>
+<h3 id="高级API（High-Level-API）、低级API（Low-Level-API）"><a href="#高级API（High-Level-API）、低级API（Low-Level-API）" class="headerlink" title="高级API（High-Level API）、低级API（Low-Level API）"></a>高级API（High-Level API）、低级API（Low-Level API）</h3><ul>
+<li>高级API就是直接让Kafka帮助管理、处理分配、数据<ul>
+<li>offset存储在ZK中</li>
+<li>由kafka的rebalance来控制消费者分配的分区</li>
+<li>开发起来比较简单，无需开发者关注底层细节</li>
+<li>无法做到细粒度的控制</li>
+</ul>
+</li>
+<li>低级API：由编写的程序自己控制逻辑<ul>
+<li>自己来管理Offset，可以将offset存储在ZK、MySQL、Redis、HBase、Flink的状态存储</li>
+<li>指定消费者拉取某个分区的数据</li>
+<li>可以做到细粒度的控制</li>
+<li>原有的Kafka的策略会失效，需要我们自己来实现消费机制</li>
+</ul>
+</li>
+</ul>
+<h2 id="Kafka原理"><a href="#Kafka原理" class="headerlink" title="Kafka原理"></a>Kafka原理</h2><h3 id="leader和follower"><a href="#leader和follower" class="headerlink" title="leader和follower"></a>leader和follower</h3><ul>
+<li>Kafka中的leader和follower是相对分区有意义，不是相对broker</li>
+<li>Kafka在创建topic的时候，会尽量分配分区的leader在不同的broker中，其实就是负载均衡</li>
+<li>leader职责：读写数据</li>
+<li>follower职责：同步数据、参与选举（leader crash之后，会选举一个follower重新成为分区的leader</li>
+<li>注意和ZooKeeper区分<ul>
+<li>ZK的leader负责读、写，follower可以读取</li>
+<li>Kafka的leader负责读写、follower不能读写数据（确保每个消费者消费的数据是一致的），Kafka一个topic有多个分区leader，一样可以实现数据操作的负载均衡</li>
+</ul>
+</li>
+</ul>
+<h3 id="AR-ISR-OSR"><a href="#AR-ISR-OSR" class="headerlink" title="AR\ISR\OSR"></a>AR\ISR\OSR</h3><ul>
+<li>AR表示一个topic下的所有副本</li>
+<li>ISR：In Sync Replicas，正在同步的副本（可以理解为当前有几个follower是存活的）</li>
+<li>OSR：Out of Sync Replicas，不再同步的副本</li>
+<li>AR = ISR + OSR</li>
+</ul>
+<h3 id="leader选举"><a href="#leader选举" class="headerlink" title="leader选举"></a>leader选举</h3><ul>
+<li><p>Controller：controller是kafka集群的老大，是针对Broker的一个角色</p>
+<ul>
+<li>Controller是高可用的，是用过ZK来进行选举</li>
+</ul>
+</li>
+<li><p>Leader：是针对partition的一个角色</p>
+<ul>
+<li>Leader是通过ISR来进行快速选举</li>
+</ul>
+</li>
+<li><p>如果Kafka是基于ZK来进行选举，ZK的压力可能会比较大。例如：某个节点崩溃，这个节点上不仅仅只有一个leader，是有不少的leader需要选举。通过ISR快速进行选举。</p>
+</li>
+<li><p>leader的负载均衡</p>
+<ul>
+<li>如果某个broker crash之后，就可能会导致partition的leader分布不均匀，就是一个broker上存在一个topic下不同partition的leader</li>
+<li>通过以下指令，可以将leader分配到优先的leader对应的broker，确保leader是均匀分配的</li>
+</ul>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-leader-election.sh --bootstrap-server node1.itcast.cn:9092 --topic test --partition=2 --election-type preferred</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Kafka读写流程"><a href="#Kafka读写流程" class="headerlink" title="Kafka读写流程"></a>Kafka读写流程</h3><ul>
+<li>写流程<ul>
+<li>通过ZooKeeper找partition对应的leader，leader是负责写的</li>
+<li>producer开始写入数据</li>
+<li>ISR里面的follower开始同步数据，并返回给leader ACK</li>
+<li>返回给producer ACK</li>
+</ul>
+</li>
+<li>读流程<ul>
+<li>通过ZooKeeper找partition对应的leader，leader是负责读的</li>
+<li>通过ZooKeeper找到消费者对应的offset</li>
+<li>然后开始从offset往后顺序拉取数据</li>
+<li>提交offset（自动提交——每隔多少秒提交一次offset、手动提交——放入到事务中提交）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Kafka的物理存储"><a href="#Kafka的物理存储" class="headerlink" title="Kafka的物理存储"></a>Kafka的物理存储</h3><ul>
+<li>Kafka的数据组织结构<ul>
+<li>topic</li>
+<li>partition</li>
+<li>segment<ul>
+<li>.log数据文件</li>
+<li>.index（稀疏索引）</li>
+<li>.timeindex（根据时间做的索引）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>深入了解读数据的流程<ul>
+<li>消费者的offset是一个针对partition全局offset</li>
+<li>可以根据这个offset找到segment段</li>
+<li>接着需要将全局的offset转换成segment的局部offset</li>
+<li>根据局部的offset，就可以从（.index稀疏索引）找到对应的数据位置</li>
+<li>开始顺序读取</li>
+</ul>
+</li>
+</ul>
+<h3 id="消息传递的语义性"><a href="#消息传递的语义性" class="headerlink" title="消息传递的语义性"></a>消息传递的语义性</h3><p>Flink里面有对应的每种不同机制的保证，提供Exactly-Once保障（二阶段事务提交方式）</p>
+<ul>
+<li>At-most once：最多一次（只管把数据消费到，不管有没有成功，可能会有数据丢失）</li>
+<li>At-least once：最少一次（有可能会出现重复消费）</li>
+<li>Exactly-Once：仅有一次（事务性性的保障，保证消息有且仅被处理一次）</li>
+</ul>
+<h3 id="Kafka的消息不丢失"><a href="#Kafka的消息不丢失" class="headerlink" title="Kafka的消息不丢失"></a>Kafka的消息不丢失</h3><ul>
+<li>broker消息不丢失：因为有副本relicas的存在，会不断地从leader中同步副本，所以，一个broker crash，不会导致数据丢失，除非是只有一个副本。</li>
+<li>生产者消息不丢失：ACK机制（配置成ALL/-1）、配置0或者1有可能会存在丢失</li>
+<li>消费者消费不丢失：重点控制offset<ul>
+<li>At-least once：一种数据可能会重复消费</li>
+<li>Exactly-Once：仅被一次消费</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据积压"><a href="#数据积压" class="headerlink" title="数据积压"></a>数据积压</h3><ul>
+<li>数据积压指的是消费者因为有一些外部的IO、一些比较耗时的操作（Full GC——Stop the world），就会造成消息在partition中一直存在得不到消费，就会产生数据积压</li>
+<li>在企业中，我们要有监控系统，如果出现这种情况，需要尽快处理。虽然后续的Spark Streaming/Flink可以实现背压机制，但是数据累积太多一定对实时系统它的实时性是有说影响的</li>
+</ul>
+<h3 id="数据清理-amp-配额限速"><a href="#数据清理-amp-配额限速" class="headerlink" title="数据清理&amp;配额限速"></a>数据清理&amp;配额限速</h3><ul>
+<li>数据清理<ul>
+<li>Log Deletion（日志删除）：如果消息达到一定的条件（时间、日志大小、offset大小），Kafka就会自动将日志设置为待删除（segment端的后缀名会以 .delete结尾），日志管理程序会定期清理这些日志<ul>
+<li>默认是7天过期</li>
+</ul>
+</li>
+<li>Log Compaction（日志合并）<ul>
+<li>如果在一些key-value数据中，一个key可以对应多个不同版本的value</li>
+<li>经过日志合并，就会只保留最新的一个版本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>配额限速<ul>
+<li>可以限制Producer、Consumer的速率</li>
+<li>防止Kafka的速度过快，占用整个服务器（broker）的所有IO资源</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-25T04:25:15.672Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/25/Kafka%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-25T04:25:15.669Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/nginx/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:50:29.254Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/nginx/">nginx</a>
-    </h1>
+    <a href="/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
+  
+    <a href="/2022/04/29/nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nginx</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/Netty/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:42:28.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/Netty/">netty</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/Zookeeper/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:41:59.918Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/Zookeeper/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/mq/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:11:49.667Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/mq/">mq消息队列</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/28/jvm%E9%9D%A2%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2022-04-28T05:02:22.188Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/27/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-04-27T13:57:43.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-04-27T05:32:35.564Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/26/redis/" class="archive-article-date">
-  	<time datetime="2022-04-26T15:31:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/26/redis/">redis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -438,8 +518,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

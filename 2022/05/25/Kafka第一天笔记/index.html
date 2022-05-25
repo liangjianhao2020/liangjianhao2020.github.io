@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Kafka第一天课堂笔记Kafka简介消息队列 消息队列——用于存放消息的组件 程序员可以将消息放入到队列中，也可以从消息队列中获取消息 很多时候消息队列不是一个永久性的存储，是作为临时存储存在的（设定一个期限：设置消息在MQ中保存10天） 消息队列中间件：消息队列的组件，例如：Kafka、Active MQ、RabbitMQ、RocketMQ、ZeroMQ  Kafka的应用场景 异步处理 可以">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kafka第一天课堂笔记Kafka简介消息队列 消息队列——用于存放消息的组件 程序员可以将消息放入到队列中，也可以从消息队列中获取消息 很多时候消息队列不是一个永久性的存储，是作为临时存储存在的（设定一个期限：设置消息在MQ中保存10天） 消息队列中间件：消息队列的组件，例如：Kafka、Active MQ、RabbitMQ、RocketMQ、ZeroMQ  Kafka的应用场景 异步处理 可以">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/image/image-20200916093856262.png">
+<meta property="og:image" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/image/image-20200916093908261.png">
+<meta property="og:image" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/image/image-20200916093919754.png">
+<meta property="og:image" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/image/image-20200916093933994.png">
+<meta property="article:published_time" content="2022-05-25T04:25:15.672Z">
+<meta property="article:modified_time" content="2020-10-27T08:31:05.304Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/image/image-20200916093856262.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,271 +159,315 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Kafka第一天笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Kafka第一天课堂笔记"><a href="#Kafka第一天课堂笔记" class="headerlink" title="Kafka第一天课堂笔记"></a>Kafka第一天课堂笔记</h1><h2 id="Kafka简介"><a href="#Kafka简介" class="headerlink" title="Kafka简介"></a>Kafka简介</h2><h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><ul>
+<li>消息队列——用于存放消息的组件</li>
+<li>程序员可以将消息放入到队列中，也可以从消息队列中获取消息</li>
+<li>很多时候消息队列不是一个永久性的存储，是作为临时存储存在的（设定一个期限：设置消息在MQ中保存10天）</li>
+<li>消息队列中间件：消息队列的组件，例如：Kafka、Active MQ、RabbitMQ、RocketMQ、ZeroMQ</li>
+</ul>
+<h3 id="Kafka的应用场景"><a href="#Kafka的应用场景" class="headerlink" title="Kafka的应用场景"></a>Kafka的应用场景</h3><ul>
+<li>异步处理<ul>
+<li>可以将一些比较耗时的操作放在其他系统中，通过消息队列将需要进行处理的消息进行存储，其他系统可以消费消息队列中的数据</li>
+<li>比较常见的：发送短信验证码、发送邮件</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/image-20200916093856262.png" alt="image-20200916093856262"></p>
+<ul>
+<li>系统解耦<ul>
+<li>原先一个微服务是通过接口（HTTP）调用另一个微服务，这时候耦合很严重，只要接口发生变化就会导致系统不可用</li>
+<li>使用消息队列可以将系统进行解耦合，现在第一个微服务可以将消息放入到消息队列中，另一个微服务可以从消息队列中把消息取出来进行处理。进行系统解耦</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/image-20200916093908261.png" alt="image-20200916093908261"></p>
+<ul>
+<li>流量削峰<ul>
+<li>因为消息队列是低延迟、高可靠、高吞吐的，可以应对大量并发</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/image-20200916093919754.png" alt="image-20200916093919754"></p>
+<ul>
+<li>日志处理<ul>
+<li>可以使用消息队列作为临时存储，或者一种通信管道</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/image-20200916093933994.png" alt="image-20200916093933994"></p>
+<h3 id="消息队列的两种模型"><a href="#消息队列的两种模型" class="headerlink" title="消息队列的两种模型"></a>消息队列的两种模型</h3><ul>
+<li>生产者、消费者模型<ul>
+<li>生产者负责将消息生产到MQ中</li>
+<li>消费者负责从MQ中获取消息</li>
+<li>生产者和消费者是解耦的，可能是生产者一个程序、消费者是另外一个程序</li>
+</ul>
+</li>
+<li>消息队列的模式<ul>
+<li>点对点：一个消费者消费一个消息</li>
+<li>发布订阅：多个消费者可以消费一个消息</li>
+</ul>
+</li>
+</ul>
+<h2 id="Kafka集群搭建"><a href="#Kafka集群搭建" class="headerlink" title="Kafka集群搭建"></a>Kafka集群搭建</h2><ul>
+<li>Kafka集群是必须要有ZooKeeper的</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>每一个Kafka的节点都需要修改broker.id（每个节点的标识，不能重复）</li>
+<li>log.dir数据存储目录需要配置</li>
+</ul>
+<h3 id="Kafka的生产者-消费者-工具"><a href="#Kafka的生产者-消费者-工具" class="headerlink" title="Kafka的生产者/消费者/工具"></a>Kafka的生产者/消费者/工具</h3><ul>
+<li>安装Kafka集群，可以测试以下<ul>
+<li>创建一个topic主题（消息都是存放在topic中，类似mysql建表的过程）</li>
+<li>基于kafka的内置测试生产者脚本来读取标准输入（键盘输入）的数据，并放入到topic中</li>
+<li>基于kafka的内置测试消费者脚本来消费topic中的数据</li>
+</ul>
+</li>
+<li>推荐大家开发的使用Kafka Tool<ul>
+<li>浏览Kafka集群节点、多少个topic、多少个分区</li>
+<li>创建topic/删除topic</li>
+<li>浏览ZooKeeper中的数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="Kafka的基准测试工具"><a href="#Kafka的基准测试工具" class="headerlink" title="Kafka的基准测试工具"></a>Kafka的基准测试工具</h3><ul>
+<li><p>Kafka中提供了内置的性能测试工具</p>
+<ul>
+<li><p>生产者：测试生产每秒传输的数据量（多少条数据、多少M的数据）</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5000000 records sent, 11825.446943 records/sec (11.28 MB/sec), 2757.61 ms avg latency</span><br></pre></td></tr></table></figure></li>
+<li><p>消费者：测试消费每条拉取的数据量</p>
+</li>
+</ul>
+</li>
+<li><p>对比生产者和消费者：消费者的速度更快</p>
+</li>
+</ul>
+<h2 id="Kafka-Java-API开发"><a href="#Kafka-Java-API开发" class="headerlink" title="Kafka Java API开发"></a>Kafka Java API开发</h2><h3 id="生产者程序开发"><a href="#生产者程序开发" class="headerlink" title="生产者程序开发"></a>生产者程序开发</h3><ol>
+<li>创建连接<ul>
+<li>bootstrap.servers：Kafka的服务器地址</li>
+<li>acks：表示当生产者生产数据到Kafka中，Kafka中会以什么样的策略返回</li>
+<li>key.serializer：Kafka中的消息是以key、value键值对存储的，而且生产者生产的消息是需要在网络上传到的，这里指定的是StringSerializer方式，就是以字符串方式发送（将来还可以使用其他的一些序列化框架：Google ProtoBuf、Avro）</li>
+<li>value.serializer：同上</li>
+</ul>
+</li>
+<li>创建一个生产者对象KafkaProducer</li>
+<li>调用send方法发送消息（ProducerRecor，封装是key-value键值对）</li>
+<li>调用Future.get表示等带服务端的响应</li>
+<li>关闭生产者</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KafkaProducerTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 创建用于连接Kafka的Properties配置</span></span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.put(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;node1.itcast.cn:9092&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;acks&quot;</span>, <span class="string">&quot;all&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;key.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;value.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 创建一个生产者对象KafkaProducer</span></span><br><span class="line">        KafkaProducer&lt;String, String&gt; kafkaProducer = <span class="keyword">new</span> KafkaProducer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 发送1-100的消息到指定的topic中</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; ++i) &#123;</span><br><span class="line">            <span class="comment">// 构建一条消息，直接new ProducerRecord</span></span><br><span class="line">            ProducerRecord&lt;String, String&gt; producerRecord = <span class="keyword">new</span> ProducerRecord&lt;&gt;(<span class="string">&quot;test&quot;</span>, <span class="keyword">null</span>, i + <span class="string">&quot;&quot;</span>);</span><br><span class="line">            Future&lt;RecordMetadata&gt; future = kafkaProducer.send(producerRecord);</span><br><span class="line">            <span class="comment">// 调用Future的get方法等待响应</span></span><br><span class="line">            future.get();</span><br><span class="line">            System.out.println(<span class="string">&quot;第&quot;</span> + i + <span class="string">&quot;条消息写入成功！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4.关闭生产者</span></span><br><span class="line">        kafkaProducer.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="消费者程序开发"><a href="#消费者程序开发" class="headerlink" title="消费者程序开发"></a>消费者程序开发</h3><ul>
+<li>group.id：消费者组的概念，可以在一个消费组中包含多个消费者。如果若干个消费者的group.id是一样的，表示它们就在一个组中，一个组中的消费者是共同消费Kafka中topic的数据。</li>
+<li>Kafka是一种拉消息模式的消息队列，在消费者中会有一个offset，表示从哪条消息开始拉取数据</li>
+<li>kafkaConsumer.poll：Kafka的消费者API是一批一批数据的拉取</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 消费者程序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 1.创建Kafka消费者配置</span></span><br><span class="line"><span class="comment"> * Properties props = new Properties();</span></span><br><span class="line"><span class="comment"> * props.setProperty(&quot;bootstrap.servers&quot;, &quot;node1.itcast.cn:9092&quot;);</span></span><br><span class="line"><span class="comment"> * props.setProperty(&quot;group.id&quot;, &quot;test&quot;);</span></span><br><span class="line"><span class="comment"> * props.setProperty(&quot;enable.auto.commit&quot;, &quot;true&quot;);</span></span><br><span class="line"><span class="comment"> * props.setProperty(&quot;auto.commit.interval.ms&quot;, &quot;1000&quot;);</span></span><br><span class="line"><span class="comment"> * props.setProperty(&quot;key.deserializer&quot;, &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);</span></span><br><span class="line"><span class="comment"> * props.setProperty(&quot;value.deserializer&quot;, &quot;org.apache.kafka.common.serialization.StringDeserializer&quot;);</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 2.创建Kafka消费者</span></span><br><span class="line"><span class="comment"> * 3.订阅要消费的主题</span></span><br><span class="line"><span class="comment"> * 4.使用一个while循环，不断从Kafka的topic中拉取消息</span></span><br><span class="line"><span class="comment"> * 5.将将记录（record）的offset、key、value都打印出来</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KafkaConsumerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建Kafka消费者配置</span></span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.setProperty(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;node1.itcast.cn:9092&quot;</span>);</span><br><span class="line">        <span class="comment">// 消费者组（可以使用消费者组将若干个消费者组织到一起），共同消费Kafka中topic的数据</span></span><br><span class="line">        <span class="comment">// 每一个消费者需要指定一个消费者组，如果消费者的组名是一样的，表示这几个消费者是一个组中的</span></span><br><span class="line">        props.setProperty(<span class="string">&quot;group.id&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">// 自动提交offset</span></span><br><span class="line">        props.setProperty(<span class="string">&quot;enable.auto.commit&quot;</span>, <span class="string">&quot;true&quot;</span>);</span><br><span class="line">        <span class="comment">// 自动提交offset的时间间隔</span></span><br><span class="line">        props.setProperty(<span class="string">&quot;auto.commit.interval.ms&quot;</span>, <span class="string">&quot;1000&quot;</span>);</span><br><span class="line">        <span class="comment">// 拉取的key、value数据的</span></span><br><span class="line">        props.setProperty(<span class="string">&quot;key.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        props.setProperty(<span class="string">&quot;value.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.创建Kafka消费者</span></span><br><span class="line">        KafkaConsumer&lt;String, String&gt; kafkaConsumer = <span class="keyword">new</span> KafkaConsumer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 订阅要消费的主题</span></span><br><span class="line">        <span class="comment">// 指定消费者从哪个topic中拉取数据</span></span><br><span class="line">        kafkaConsumer.subscribe(Arrays.asList(<span class="string">&quot;test&quot;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4.使用一个while循环，不断从Kafka的topic中拉取消息</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="comment">// Kafka的消费者一次拉取一批的数据</span></span><br><span class="line">            ConsumerRecords&lt;String, String&gt; consumerRecords = kafkaConsumer.poll(Duration.ofSeconds(<span class="number">5</span>));</span><br><span class="line">            <span class="comment">// 5.将将记录（record）的offset、key、value都打印出来</span></span><br><span class="line">            <span class="keyword">for</span> (ConsumerRecord&lt;String, String&gt; consumerRecord : consumerRecords) &#123;</span><br><span class="line">                <span class="comment">// 主题</span></span><br><span class="line">                String topic = consumerRecord.topic();</span><br><span class="line">                <span class="comment">// offset：这条消息处于Kafka分区中的哪个位置</span></span><br><span class="line">                <span class="keyword">long</span> offset = consumerRecord.offset();</span><br><span class="line">                <span class="comment">// key\value</span></span><br><span class="line">                String key = consumerRecord.key();</span><br><span class="line">                String value = consumerRecord.value();</span><br><span class="line"></span><br><span class="line">                System.out.println(<span class="string">&quot;topic: &quot;</span> + topic + <span class="string">&quot; offset:&quot;</span> + offset + <span class="string">&quot; key:&quot;</span> + key + <span class="string">&quot; value:&quot;</span> + value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="生产者使用异步方式生产消息"><a href="#生产者使用异步方式生产消息" class="headerlink" title="生产者使用异步方式生产消息"></a>生产者使用异步方式生产消息</h3><ul>
+<li>使用匿名内部类实现Callback接口，该接口中表示Kafka服务器响应给客户端，会自动调用onCompletion方法<ul>
+<li>metadata：消息的元数据（属于哪个topic、属于哪个partition、对应的offset是什么）</li>
+<li>exception：这个对象Kafka生产消息封装了出现的异常，如果为null，表示发送成功，如果不为null，表示出现异常。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二、使用异步回调的方式发送消息</span></span><br><span class="line">ProducerRecord&lt;String, String&gt; producerRecord = <span class="keyword">new</span> ProducerRecord&lt;&gt;(<span class="string">&quot;test&quot;</span>, <span class="keyword">null</span>, i + <span class="string">&quot;&quot;</span>);</span><br><span class="line">kafkaProducer.send(producerRecord, <span class="keyword">new</span> Callback() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompletion</span><span class="params">(RecordMetadata metadata, Exception exception)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 判断发送消息是否成功</span></span><br><span class="line">        <span class="keyword">if</span>(exception == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 发送成功</span></span><br><span class="line">            <span class="comment">// 主题</span></span><br><span class="line">            String topic = metadata.topic();</span><br><span class="line">            <span class="comment">// 分区id</span></span><br><span class="line">            <span class="keyword">int</span> partition = metadata.partition();</span><br><span class="line">            <span class="comment">// 偏移量</span></span><br><span class="line">            <span class="keyword">long</span> offset = metadata.offset();</span><br><span class="line">            System.out.println(<span class="string">&quot;topic:&quot;</span> + topic + <span class="string">&quot; 分区id：&quot;</span> + partition + <span class="string">&quot; 偏移量：&quot;</span> + offset);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 发送出现错误</span></span><br><span class="line">            System.out.println(<span class="string">&quot;生产消息出现异常！&quot;</span>);</span><br><span class="line">            <span class="comment">// 打印异常消息</span></span><br><span class="line">            System.out.println(exception.getMessage());</span><br><span class="line">            <span class="comment">// 打印调用栈</span></span><br><span class="line">            System.out.println(exception.getStackTrace());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Kafka中的重要概念"><a href="#Kafka中的重要概念" class="headerlink" title="Kafka中的重要概念"></a>Kafka中的重要概念</h2><ul>
+<li>broker<ul>
+<li>Kafka服务器进程，生产者、消费者都要连接broker</li>
+<li>一个集群由多个broker组成，功能实现Kafka集群的负载均衡、容错</li>
+</ul>
+</li>
+<li>producer：生产者</li>
+<li>consumer：消费者</li>
+<li>topic：主题，一个Kafka集群中，可以包含多个topic。一个topic可以包含多个分区<ul>
+<li>是一个逻辑结构，生产、消费消息都需要指定topic</li>
+</ul>
+</li>
+<li>partition：Kafka集群的分布式就是由分区来实现的。一个topic中的消息可以分布在topic中的不同partition中</li>
+<li>replica：副本，实现Kafkaf集群的容错，实现partition的容错。一个topic至少应该包含大于1个的副本</li>
+<li>consumer group：消费者组，一个消费者组中的消费者可以共同消费topic中的分区数据。每一个消费者组都一个唯一的名字。配置group.id一样的消费者是属于同一个组中</li>
+<li>offset：偏移量。相对消费者、partition来说，可以通过offset来拉取数据</li>
+</ul>
+<h3 id="消费者组"><a href="#消费者组" class="headerlink" title="消费者组"></a>消费者组</h3><ul>
+<li>一个消费者组中可以包含多个消费者，共同来消费topic中的数据</li>
+<li>一个topic中如果只有一个分区，那么这个分区只能被某个组中的一个消费者消费</li>
+<li>有多少个分区，那么就可以被同一个组内的多少个消费者消费</li>
+</ul>
+<h3 id="幂等性"><a href="#幂等性" class="headerlink" title="幂等性"></a>幂等性</h3><ul>
+<li><p>生产者消息重复问题</p>
+<ul>
+<li>Kafka生产者生产消息到partition，如果直接发送消息，kafka会将消息保存到分区中，但Kafka会返回一个ack给生产者，表示当前操作是否成功，是否已经保存了这条消息。如果ack响应的过程失败了，此时生产者会重试，继续发送没有发送成功的消息，Kafka又会保存一条一模一样的消息</li>
+</ul>
+</li>
+<li><p>在Kafka中可以开启幂等性</p>
+<ul>
+<li>当Kafka的生产者生产消息时，会增加一个pid（生产者的唯一编号）和sequence number（针对消息的一个递增序列）</li>
+<li>发送消息，会连着pid和sequence number一块发送</li>
+<li>kafka接收到消息，会将消息和pid、sequence number一并保存下来</li>
+<li>如果ack响应失败，生产者重试，再次发送消息时，Kafka会根据pid、sequence number是否需要再保存一条消息</li>
+<li>判断条件：生产者发送过来的sequence number 是否小于等于 partition中消息对应的sequence</li>
+</ul>
+</li>
+</ul>
+<h2 id="事务编程"><a href="#事务编程" class="headerlink" title="事务编程"></a>事务编程</h2><ul>
+<li><p>开启事务的条件</p>
+<ul>
+<li><p>生产者</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启事务必须要配置事务的ID</span></span><br><span class="line">props.put(<span class="string">&quot;transactional.id&quot;</span>, <span class="string">&quot;dwd_user&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>消费者</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置事务的隔离级别</span></span><br><span class="line">props.put(<span class="string">&quot;isolation.level&quot;</span>,<span class="string">&quot;read_committed&quot;</span>);</span><br><span class="line"><span class="comment">// 关闭自动提交，一会我们需要手动来提交offset，通过事务来维护offset</span></span><br><span class="line">props.setProperty(<span class="string">&quot;enable.auto.commit&quot;</span>, <span class="string">&quot;false&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>生产者</p>
+<ul>
+<li>初始化事务</li>
+<li>开启事务</li>
+<li>需要使用producer来将消费者的offset提交到事务中</li>
+<li>提交事务</li>
+<li>如果出现异常回滚事务</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果使用了事务，不要使用异步发送</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransactionProgram</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 调用之前实现的方法，创建消费者、生产者对象</span></span><br><span class="line">        KafkaConsumer&lt;String, String&gt; consumer = createConsumer();</span><br><span class="line">        KafkaProducer&lt;String, String&gt; producer = createProducer();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 生产者调用initTransactions初始化事务</span></span><br><span class="line">        producer.initTransactions();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 编写一个while死循环，在while循环中不断拉取数据，进行处理后，再写入到指定的topic</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">// (1)	生产者开启事务</span></span><br><span class="line">                producer.beginTransaction();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 这个Map保存了topic对应的partition的偏移量</span></span><br><span class="line">                Map&lt;TopicPartition, OffsetAndMetadata&gt; offsetMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 从topic中拉取一批的数据</span></span><br><span class="line">                <span class="comment">// (2)	消费者拉取消息</span></span><br><span class="line">                ConsumerRecords&lt;String, String&gt; concumserRecordArray = consumer.poll(Duration.ofSeconds(<span class="number">5</span>));</span><br><span class="line">                <span class="comment">// (3)	遍历拉取到的消息，并进行预处理</span></span><br><span class="line">                <span class="keyword">for</span> (ConsumerRecord&lt;String, String&gt; cr : concumserRecordArray) &#123;</span><br><span class="line">                    <span class="comment">// 将1转换为男，0转换为女</span></span><br><span class="line">                    String msg = cr.value();</span><br><span class="line">                    String[] fieldArray = msg.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 将消息的偏移量保存</span></span><br><span class="line">                    <span class="comment">// 消费的是ods_user中的数据</span></span><br><span class="line">                    String topic = cr.topic();</span><br><span class="line">                    <span class="keyword">int</span> partition = cr.partition();</span><br><span class="line">                    <span class="keyword">long</span> offset = cr.offset();</span><br><span class="line"></span><br><span class="line">                	<span class="keyword">int</span> i = <span class="number">1</span> / <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// offset + 1：offset是当前消费的记录（消息）对应在partition中的offset，而我们希望下一次能继续从下一个消息消息</span></span><br><span class="line">                    <span class="comment">// 必须要+1，从能消费下一条消息</span></span><br><span class="line">                    offsetMap.put(<span class="keyword">new</span> TopicPartition(topic, partition), <span class="keyword">new</span> OffsetAndMetadata(offset + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 将字段进行替换</span></span><br><span class="line">                    <span class="keyword">if</span>(fieldArray != <span class="keyword">null</span> &amp;&amp; fieldArray.length &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                        String sexField = fieldArray[<span class="number">1</span>];</span><br><span class="line">                        <span class="keyword">if</span>(sexField.equals(<span class="string">&quot;1&quot;</span>)) &#123;</span><br><span class="line">                            fieldArray[<span class="number">1</span>] = <span class="string">&quot;男&quot;</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(sexField.equals(<span class="string">&quot;0&quot;</span>))&#123;</span><br><span class="line">                            fieldArray[<span class="number">1</span>] = <span class="string">&quot;女&quot;</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 重新拼接字段</span></span><br><span class="line">                    msg = fieldArray[<span class="number">0</span>] + <span class="string">&quot;,&quot;</span> + fieldArray[<span class="number">1</span>] + <span class="string">&quot;,&quot;</span> + fieldArray[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// (4)	生产消息到dwd_user topic中</span></span><br><span class="line">                    ProducerRecord&lt;String, String&gt; dwdMsg = <span class="keyword">new</span> ProducerRecord&lt;&gt;(<span class="string">&quot;dwd_user&quot;</span>, msg);</span><br><span class="line">                    <span class="comment">// 发送消息</span></span><br><span class="line">                    Future&lt;RecordMetadata&gt; future = producer.send(dwdMsg);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        future.get();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                        producer.abortTransaction();</span><br><span class="line">                    &#125;</span><br><span class="line"><span class="comment">//                            new Callback()</span></span><br><span class="line"><span class="comment">//                    &#123;</span></span><br><span class="line"><span class="comment">//                        @Override</span></span><br><span class="line"><span class="comment">//                        public void onCompletion(RecordMetadata metadata, Exception exception) &#123;</span></span><br><span class="line"><span class="comment">//                            // 生产消息没有问题</span></span><br><span class="line"><span class="comment">//                            if(exception == null) &#123;</span></span><br><span class="line"><span class="comment">//                                System.out.println(&quot;发送成功:&quot; + dwdMsg);</span></span><br><span class="line"><span class="comment">//                            &#125;</span></span><br><span class="line"><span class="comment">//                            else &#123;</span></span><br><span class="line"><span class="comment">//                                System.out.println(&quot;生产消息失败:&quot;);</span></span><br><span class="line"><span class="comment">//                                System.out.println(exception.getMessage());</span></span><br><span class="line"><span class="comment">//                                System.out.println(exception.getStackTrace());</span></span><br><span class="line"><span class="comment">//                            &#125;</span></span><br><span class="line"><span class="comment">//                        &#125;</span></span><br><span class="line"><span class="comment">//                    &#125;);</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                producer.sendOffsetsToTransaction(offsetMap, <span class="string">&quot;ods_user&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// (6)	提交事务</span></span><br><span class="line">                producer.commitTransaction();</span><br><span class="line">            &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                <span class="comment">// (7)	捕获异常，如果出现异常，则取消事务</span></span><br><span class="line">                producer.abortTransaction();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一、创建一个消费者来消费ods_user中的数据</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> KafkaConsumer&lt;String, String&gt; <span class="title">createConsumer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 配置消费者的属性（添加对事务的支持）</span></span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.setProperty(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;node1.itcast.cn:9092&quot;</span>);</span><br><span class="line">        props.setProperty(<span class="string">&quot;group.id&quot;</span>, <span class="string">&quot;ods_user&quot;</span>);</span><br><span class="line">        <span class="comment">// 配置事务的隔离级别</span></span><br><span class="line">        props.put(<span class="string">&quot;isolation.level&quot;</span>,<span class="string">&quot;read_committed&quot;</span>);</span><br><span class="line">        <span class="comment">// 关闭自动提交，一会我们需要手动来提交offset，通过事务来维护offset</span></span><br><span class="line">        props.setProperty(<span class="string">&quot;enable.auto.commit&quot;</span>, <span class="string">&quot;false&quot;</span>);</span><br><span class="line">        <span class="comment">// 反序列化器</span></span><br><span class="line">        props.setProperty(<span class="string">&quot;key.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line">        props.setProperty(<span class="string">&quot;value.deserializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringDeserializer&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 构建消费者对象</span></span><br><span class="line">        KafkaConsumer&lt;String, String&gt; kafkaConsumer = <span class="keyword">new</span> KafkaConsumer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 订阅一个topic</span></span><br><span class="line">        kafkaConsumer.subscribe(Arrays.asList(<span class="string">&quot;ods_user&quot;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> kafkaConsumer;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 二、编写createProducer方法，用来创建一个带有事务配置的生产者</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> KafkaProducer&lt;String, String&gt; <span class="title">createProducer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 配置生产者带有事务配置的属性</span></span><br><span class="line">        Properties props = <span class="keyword">new</span> Properties();</span><br><span class="line">        props.put(<span class="string">&quot;bootstrap.servers&quot;</span>, <span class="string">&quot;node1.itcast.cn:9092&quot;</span>);</span><br><span class="line">        <span class="comment">// 开启事务必须要配置事务的ID</span></span><br><span class="line">        props.put(<span class="string">&quot;transactional.id&quot;</span>, <span class="string">&quot;dwd_user&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;key.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line">        props.put(<span class="string">&quot;value.serializer&quot;</span>, <span class="string">&quot;org.apache.kafka.common.serialization.StringSerializer&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 构建生产者</span></span><br><span class="line">        KafkaProducer&lt;String, String&gt; kafkaProducer = <span class="keyword">new</span> KafkaProducer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> kafkaProducer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-25T04:25:15.672Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/25/Kafka%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/25/Kafka%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-25T04:25:15.669Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/nginx/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:50:29.254Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/nginx/">nginx</a>
-    </h1>
+  
+    <a href="/2022/05/25/Kafka%E7%AC%AC%E4%BA%8C%E5%A4%A9%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/Netty/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:42:28.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/Netty/">netty</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/Zookeeper/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:41:59.918Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/Zookeeper/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/29/mq/" class="archive-article-date">
-  	<time datetime="2022-04-29T05:11:49.667Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/29/mq/">mq消息队列</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/28/jvm%E9%9D%A2%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2022-04-28T05:02:22.188Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/27/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-04-27T13:57:43.191Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-04-27T05:32:35.564Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/27/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/04/26/redis/" class="archive-article-date">
-  	<time datetime="2022-04-26T15:31:50.829Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/04/26/redis/">redis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -438,8 +491,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
